@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.msMenu = new System.Windows.Forms.MenuStrip();
-            this.btnFisier = new System.Windows.Forms.ToolStripMenuItem();
             this.btnIesire = new System.Windows.Forms.ToolStripMenuItem();
             this.btnAdaugareProduse = new System.Windows.Forms.ToolStripMenuItem();
             this.btnModificareProduse = new System.Windows.Forms.ToolStripMenuItem();
@@ -41,7 +40,7 @@
             // msMenu
             // 
             this.msMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btnFisier,
+            this.btnIesire,
             this.btnAdaugareProduse,
             this.btnModificareProduse});
             this.msMenu.Location = new System.Drawing.Point(0, 0);
@@ -50,19 +49,11 @@
             this.msMenu.TabIndex = 0;
             this.msMenu.Text = "menuStrip1";
             // 
-            // btnFisier
-            // 
-            this.btnFisier.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btnIesire});
-            this.btnFisier.Name = "btnFisier";
-            this.btnFisier.Size = new System.Drawing.Size(46, 20);
-            this.btnFisier.Text = "&Fisier";
-            // 
             // btnIesire
             // 
             this.btnIesire.Name = "btnIesire";
-            this.btnIesire.Size = new System.Drawing.Size(101, 22);
-            this.btnIesire.Text = "I&esire";
+            this.btnIesire.Size = new System.Drawing.Size(46, 20);
+            this.btnIesire.Text = "&Iesire";
             this.btnIesire.Click += new System.EventHandler(this.btnIesire_Click);
             // 
             // btnAdaugareProduse
@@ -113,7 +104,6 @@
         #endregion
 
         private System.Windows.Forms.MenuStrip msMenu;
-        private System.Windows.Forms.ToolStripMenuItem btnFisier;
         private System.Windows.Forms.ToolStripMenuItem btnIesire;
         private System.Windows.Forms.DataGridView dgvProduse;
         private System.Windows.Forms.ToolStripMenuItem btnAdaugareProduse;

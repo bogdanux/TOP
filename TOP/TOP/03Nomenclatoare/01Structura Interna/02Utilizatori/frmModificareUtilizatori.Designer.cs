@@ -218,6 +218,7 @@
             this.Controls.Add(this.panouModificare);
             this.Controls.Add(this.dgvUtilizatori);
             this.Controls.Add(this.msMeniuAdaugareFunctii);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.msMeniuAdaugareFunctii;
             this.Name = "frmModificareUtilizatori";
             this.Text = "Modificare utilizatori";

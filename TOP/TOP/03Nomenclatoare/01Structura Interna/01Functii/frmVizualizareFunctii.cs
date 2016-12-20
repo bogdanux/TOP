@@ -16,11 +16,6 @@ namespace TOP
 
         ConexiuniDB con = new ConexiuniDB();
 
-        private void iesireToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
         private void incarcareDGV()
         {
             using (OdbcConnection conexiune = new OdbcConnection(con.sirconTOP))
@@ -98,6 +93,11 @@ namespace TOP
 
             form.Show();
 
+            Close();
+        }
+
+        private void btnIesire_Click(object sender, EventArgs e)
+        {
             Close();
         }
     }

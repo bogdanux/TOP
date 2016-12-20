@@ -58,11 +58,6 @@ namespace TOP
             }
         }
 
-        private void iesireToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
         private void txtDenumire_TextChanged(object sender, EventArgs e)
         {
             if (txtDenumire.Text != string.Empty)
@@ -200,6 +195,11 @@ namespace TOP
 
             form.Show();
 
+            Close();
+        }
+
+        private void btnIesire_Click(object sender, EventArgs e)
+        {
             Close();
         }
     }

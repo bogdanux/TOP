@@ -29,8 +29,7 @@
         private void InitializeComponent()
         {
             this.msMenu = new System.Windows.Forms.MenuStrip();
-            this.fisierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.iesireToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnIesire = new System.Windows.Forms.ToolStripMenuItem();
             this.btnAdaugareUtilizatori = new System.Windows.Forms.ToolStripMenuItem();
             this.btnModificareUtilzatori = new System.Windows.Forms.ToolStripMenuItem();
             this.dgvUtilizatori = new System.Windows.Forms.DataGridView();
@@ -41,7 +40,7 @@
             // msMenu
             // 
             this.msMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fisierToolStripMenuItem,
+            this.btnIesire,
             this.btnAdaugareUtilizatori,
             this.btnModificareUtilzatori});
             this.msMenu.Location = new System.Drawing.Point(0, 0);
@@ -50,20 +49,12 @@
             this.msMenu.TabIndex = 0;
             this.msMenu.Text = "menuStrip1";
             // 
-            // fisierToolStripMenuItem
+            // btnIesire
             // 
-            this.fisierToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.iesireToolStripMenuItem});
-            this.fisierToolStripMenuItem.Name = "fisierToolStripMenuItem";
-            this.fisierToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
-            this.fisierToolStripMenuItem.Text = "&Fisier";
-            // 
-            // iesireToolStripMenuItem
-            // 
-            this.iesireToolStripMenuItem.Name = "iesireToolStripMenuItem";
-            this.iesireToolStripMenuItem.Size = new System.Drawing.Size(101, 22);
-            this.iesireToolStripMenuItem.Text = "I&esire";
-            this.iesireToolStripMenuItem.Click += new System.EventHandler(this.iesireToolStripMenuItem_Click);
+            this.btnIesire.Name = "btnIesire";
+            this.btnIesire.Size = new System.Drawing.Size(46, 20);
+            this.btnIesire.Text = "&Iesire";
+            this.btnIesire.Click += new System.EventHandler(this.btnIesire_Click);
             // 
             // btnAdaugareUtilizatori
             // 
@@ -113,8 +104,7 @@
         #endregion
 
         private System.Windows.Forms.MenuStrip msMenu;
-        private System.Windows.Forms.ToolStripMenuItem fisierToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem iesireToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem btnIesire;
         private System.Windows.Forms.DataGridView dgvUtilizatori;
         private System.Windows.Forms.ToolStripMenuItem btnAdaugareUtilizatori;
         private System.Windows.Forms.ToolStripMenuItem btnModificareUtilzatori;

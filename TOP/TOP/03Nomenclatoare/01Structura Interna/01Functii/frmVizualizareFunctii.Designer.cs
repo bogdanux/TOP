@@ -29,11 +29,10 @@
         private void InitializeComponent()
         {
             this.msMenu = new System.Windows.Forms.MenuStrip();
-            this.fisierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.iesireToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dgvFunctii = new System.Windows.Forms.DataGridView();
+            this.btnIesire = new System.Windows.Forms.ToolStripMenuItem();
             this.btnAdaugareFunctii = new System.Windows.Forms.ToolStripMenuItem();
             this.btnModificareFunctii = new System.Windows.Forms.ToolStripMenuItem();
+            this.dgvFunctii = new System.Windows.Forms.DataGridView();
             this.msMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFunctii)).BeginInit();
             this.SuspendLayout();
@@ -41,7 +40,7 @@
             // msMenu
             // 
             this.msMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fisierToolStripMenuItem,
+            this.btnIesire,
             this.btnAdaugareFunctii,
             this.btnModificareFunctii});
             this.msMenu.Location = new System.Drawing.Point(0, 0);
@@ -50,32 +49,12 @@
             this.msMenu.TabIndex = 0;
             this.msMenu.Text = "menuStrip1";
             // 
-            // fisierToolStripMenuItem
+            // btnIesire
             // 
-            this.fisierToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.iesireToolStripMenuItem});
-            this.fisierToolStripMenuItem.Name = "fisierToolStripMenuItem";
-            this.fisierToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
-            this.fisierToolStripMenuItem.Text = "&Fisier";
-            // 
-            // iesireToolStripMenuItem
-            // 
-            this.iesireToolStripMenuItem.Name = "iesireToolStripMenuItem";
-            this.iesireToolStripMenuItem.Size = new System.Drawing.Size(101, 22);
-            this.iesireToolStripMenuItem.Text = "I&esire";
-            this.iesireToolStripMenuItem.Click += new System.EventHandler(this.iesireToolStripMenuItem_Click);
-            // 
-            // dgvFunctii
-            // 
-            this.dgvFunctii.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvFunctii.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvFunctii.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvFunctii.Location = new System.Drawing.Point(0, 24);
-            this.dgvFunctii.Name = "dgvFunctii";
-            this.dgvFunctii.ReadOnly = true;
-            this.dgvFunctii.RowHeadersVisible = false;
-            this.dgvFunctii.Size = new System.Drawing.Size(634, 417);
-            this.dgvFunctii.TabIndex = 1;
+            this.btnIesire.Name = "btnIesire";
+            this.btnIesire.Size = new System.Drawing.Size(46, 20);
+            this.btnIesire.Text = "&Iesire";
+            this.btnIesire.Click += new System.EventHandler(this.btnIesire_Click);
             // 
             // btnAdaugareFunctii
             // 
@@ -90,6 +69,18 @@
             this.btnModificareFunctii.Size = new System.Drawing.Size(113, 20);
             this.btnModificareFunctii.Text = "&Modificare functii";
             this.btnModificareFunctii.Click += new System.EventHandler(this.btnModificareFunctii_Click);
+            // 
+            // dgvFunctii
+            // 
+            this.dgvFunctii.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvFunctii.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvFunctii.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvFunctii.Location = new System.Drawing.Point(0, 24);
+            this.dgvFunctii.Name = "dgvFunctii";
+            this.dgvFunctii.ReadOnly = true;
+            this.dgvFunctii.RowHeadersVisible = false;
+            this.dgvFunctii.Size = new System.Drawing.Size(634, 417);
+            this.dgvFunctii.TabIndex = 1;
             // 
             // frmVizualizareFunctii
             // 
@@ -113,8 +104,7 @@
         #endregion
 
         private System.Windows.Forms.MenuStrip msMenu;
-        private System.Windows.Forms.ToolStripMenuItem fisierToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem iesireToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem btnIesire;
         private System.Windows.Forms.DataGridView dgvFunctii;
         private System.Windows.Forms.ToolStripMenuItem btnAdaugareFunctii;
         private System.Windows.Forms.ToolStripMenuItem btnModificareFunctii;

@@ -34,6 +34,7 @@ namespace TOP
                 btnGO.Enabled = false;
             }
         }
+
         private void txtDenumireFunctie_TextChanged(object sender, EventArgs e)
         {
             if (txtDenumireFunctie.Text != string.Empty)
@@ -51,6 +52,7 @@ namespace TOP
                 cmbNivel.Enabled = false;
             }
         }
+
         private void incarcareDGV()
         {
             using (OdbcConnection conexiune = new OdbcConnection(con.sirconTOP))
@@ -88,6 +90,7 @@ namespace TOP
                 }
             }
         }
+
         private void tsResetareCampuri_Click(object sender, EventArgs e)
         {
             chkActiv.Checked = false;
@@ -104,6 +107,7 @@ namespace TOP
             txtCodFunctie.Clear();
             txtCodFunctie.Enabled = true;
         }
+
         private void btnGO_Click(object sender, EventArgs e)
         {
             func.codfunctie = Int32.Parse(txtCodFunctie.Text);
@@ -139,6 +143,7 @@ namespace TOP
                 MessageBox.Show(func.scvm);
             }
         }
+
         private void btnModificare_Click(object sender, EventArgs e)
         {
             func.codfunctie = Int32.Parse(txtCodFunctie.Text);

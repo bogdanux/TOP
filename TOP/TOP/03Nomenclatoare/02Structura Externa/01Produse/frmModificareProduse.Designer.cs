@@ -29,8 +29,9 @@
         private void InitializeComponent()
         {
             this.msMenu = new System.Windows.Forms.MenuStrip();
-            this.btnFisier = new System.Windows.Forms.ToolStripMenuItem();
             this.btnIesire = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnAdaugareProduse = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnVizualizareProduse = new System.Windows.Forms.ToolStripMenuItem();
             this.panouGeneral = new System.Windows.Forms.Panel();
             this.btnOK = new System.Windows.Forms.Button();
             this.chkActiv = new System.Windows.Forms.CheckBox();
@@ -44,8 +45,6 @@
             this.lblDenumireProdus = new System.Windows.Forms.Label();
             this.lblCod = new System.Windows.Forms.Label();
             this.dgvProduse = new System.Windows.Forms.DataGridView();
-            this.btnAdaugareProduse = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnVizualizareProduse = new System.Windows.Forms.ToolStripMenuItem();
             this.msMenu.SuspendLayout();
             this.panouGeneral.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduse)).BeginInit();
@@ -54,7 +53,7 @@
             // msMenu
             // 
             this.msMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btnFisier,
+            this.btnIesire,
             this.btnAdaugareProduse,
             this.btnVizualizareProduse});
             this.msMenu.Location = new System.Drawing.Point(0, 0);
@@ -63,20 +62,26 @@
             this.msMenu.TabIndex = 0;
             this.msMenu.Text = "menuStrip1";
             // 
-            // btnFisier
-            // 
-            this.btnFisier.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btnIesire});
-            this.btnFisier.Name = "btnFisier";
-            this.btnFisier.Size = new System.Drawing.Size(46, 20);
-            this.btnFisier.Text = "&Fisier";
-            // 
             // btnIesire
             // 
             this.btnIesire.Name = "btnIesire";
-            this.btnIesire.Size = new System.Drawing.Size(101, 22);
-            this.btnIesire.Text = "I&esire";
+            this.btnIesire.Size = new System.Drawing.Size(46, 20);
+            this.btnIesire.Text = "&Iesire";
             this.btnIesire.Click += new System.EventHandler(this.btnIesire_Click);
+            // 
+            // btnAdaugareProduse
+            // 
+            this.btnAdaugareProduse.Name = "btnAdaugareProduse";
+            this.btnAdaugareProduse.Size = new System.Drawing.Size(116, 20);
+            this.btnAdaugareProduse.Text = "&Adaugare produse";
+            this.btnAdaugareProduse.Click += new System.EventHandler(this.btnAdaugareProduse_Click);
+            // 
+            // btnVizualizareProduse
+            // 
+            this.btnVizualizareProduse.Name = "btnVizualizareProduse";
+            this.btnVizualizareProduse.Size = new System.Drawing.Size(120, 20);
+            this.btnVizualizareProduse.Text = "&Vizualizare produse";
+            this.btnVizualizareProduse.Click += new System.EventHandler(this.btnVizualizareProduse_Click);
             // 
             // panouGeneral
             // 
@@ -211,20 +216,6 @@
             this.dgvProduse.Size = new System.Drawing.Size(610, 247);
             this.dgvProduse.TabIndex = 7;
             // 
-            // btnAdaugareProduse
-            // 
-            this.btnAdaugareProduse.Name = "btnAdaugareProduse";
-            this.btnAdaugareProduse.Size = new System.Drawing.Size(116, 20);
-            this.btnAdaugareProduse.Text = "&Adaugare produse";
-            this.btnAdaugareProduse.Click += new System.EventHandler(this.btnAdaugareProduse_Click);
-            // 
-            // btnVizualizareProduse
-            // 
-            this.btnVizualizareProduse.Name = "btnVizualizareProduse";
-            this.btnVizualizareProduse.Size = new System.Drawing.Size(120, 20);
-            this.btnVizualizareProduse.Text = "&Vizualizare produse";
-            this.btnVizualizareProduse.Click += new System.EventHandler(this.btnVizualizareProduse_Click);
-            // 
             // frmModificareProduse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -250,7 +241,6 @@
         #endregion
 
         private System.Windows.Forms.MenuStrip msMenu;
-        private System.Windows.Forms.ToolStripMenuItem btnFisier;
         private System.Windows.Forms.ToolStripMenuItem btnIesire;
         private System.Windows.Forms.Panel panouGeneral;
         private System.Windows.Forms.Label lblCod;
