@@ -24,15 +24,17 @@ namespace TOP {
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
     public partial class dsTOP : global::System.Data.DataSet {
         
-        private functiiDataTable tablefunctii;
+        private denumiriniveluriDataTable tabledenumiriniveluri;
         
-        private niveluriDataTable tableniveluri;
+        private functiiDataTable tablefunctii;
         
         private produsesoftwareDataTable tableprodusesoftware;
         
         private structuriDataTable tablestructuri;
         
         private utilizatoriDataTable tableutilizatori;
+        
+        private valoriniveluriDataTable tablevaloriniveluri;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -62,11 +64,11 @@ namespace TOP {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
+                if ((ds.Tables["denumiriniveluri"] != null)) {
+                    base.Tables.Add(new denumiriniveluriDataTable(ds.Tables["denumiriniveluri"]));
+                }
                 if ((ds.Tables["functii"] != null)) {
                     base.Tables.Add(new functiiDataTable(ds.Tables["functii"]));
-                }
-                if ((ds.Tables["niveluri"] != null)) {
-                    base.Tables.Add(new niveluriDataTable(ds.Tables["niveluri"]));
                 }
                 if ((ds.Tables["produsesoftware"] != null)) {
                     base.Tables.Add(new produsesoftwareDataTable(ds.Tables["produsesoftware"]));
@@ -76,6 +78,9 @@ namespace TOP {
                 }
                 if ((ds.Tables["utilizatori"] != null)) {
                     base.Tables.Add(new utilizatoriDataTable(ds.Tables["utilizatori"]));
+                }
+                if ((ds.Tables["valoriniveluri"] != null)) {
+                    base.Tables.Add(new valoriniveluriDataTable(ds.Tables["valoriniveluri"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -99,9 +104,9 @@ namespace TOP {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public functiiDataTable functii {
+        public denumiriniveluriDataTable denumiriniveluri {
             get {
-                return this.tablefunctii;
+                return this.tabledenumiriniveluri;
             }
         }
         
@@ -109,9 +114,9 @@ namespace TOP {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public niveluriDataTable niveluri {
+        public functiiDataTable functii {
             get {
-                return this.tableniveluri;
+                return this.tablefunctii;
             }
         }
         
@@ -142,6 +147,16 @@ namespace TOP {
         public utilizatoriDataTable utilizatori {
             get {
                 return this.tableutilizatori;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public valoriniveluriDataTable valoriniveluri {
+            get {
+                return this.tablevaloriniveluri;
             }
         }
         
@@ -212,11 +227,11 @@ namespace TOP {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
+                if ((ds.Tables["denumiriniveluri"] != null)) {
+                    base.Tables.Add(new denumiriniveluriDataTable(ds.Tables["denumiriniveluri"]));
+                }
                 if ((ds.Tables["functii"] != null)) {
                     base.Tables.Add(new functiiDataTable(ds.Tables["functii"]));
-                }
-                if ((ds.Tables["niveluri"] != null)) {
-                    base.Tables.Add(new niveluriDataTable(ds.Tables["niveluri"]));
                 }
                 if ((ds.Tables["produsesoftware"] != null)) {
                     base.Tables.Add(new produsesoftwareDataTable(ds.Tables["produsesoftware"]));
@@ -226,6 +241,9 @@ namespace TOP {
                 }
                 if ((ds.Tables["utilizatori"] != null)) {
                     base.Tables.Add(new utilizatoriDataTable(ds.Tables["utilizatori"]));
+                }
+                if ((ds.Tables["valoriniveluri"] != null)) {
+                    base.Tables.Add(new valoriniveluriDataTable(ds.Tables["valoriniveluri"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -260,16 +278,16 @@ namespace TOP {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         internal void InitVars(bool initTable) {
+            this.tabledenumiriniveluri = ((denumiriniveluriDataTable)(base.Tables["denumiriniveluri"]));
+            if ((initTable == true)) {
+                if ((this.tabledenumiriniveluri != null)) {
+                    this.tabledenumiriniveluri.InitVars();
+                }
+            }
             this.tablefunctii = ((functiiDataTable)(base.Tables["functii"]));
             if ((initTable == true)) {
                 if ((this.tablefunctii != null)) {
                     this.tablefunctii.InitVars();
-                }
-            }
-            this.tableniveluri = ((niveluriDataTable)(base.Tables["niveluri"]));
-            if ((initTable == true)) {
-                if ((this.tableniveluri != null)) {
-                    this.tableniveluri.InitVars();
                 }
             }
             this.tableprodusesoftware = ((produsesoftwareDataTable)(base.Tables["produsesoftware"]));
@@ -290,6 +308,12 @@ namespace TOP {
                     this.tableutilizatori.InitVars();
                 }
             }
+            this.tablevaloriniveluri = ((valoriniveluriDataTable)(base.Tables["valoriniveluri"]));
+            if ((initTable == true)) {
+                if ((this.tablevaloriniveluri != null)) {
+                    this.tablevaloriniveluri.InitVars();
+                }
+            }
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -300,27 +324,29 @@ namespace TOP {
             this.Namespace = "http://tempuri.org/dsTOP.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
+            this.tabledenumiriniveluri = new denumiriniveluriDataTable();
+            base.Tables.Add(this.tabledenumiriniveluri);
             this.tablefunctii = new functiiDataTable();
             base.Tables.Add(this.tablefunctii);
-            this.tableniveluri = new niveluriDataTable();
-            base.Tables.Add(this.tableniveluri);
             this.tableprodusesoftware = new produsesoftwareDataTable();
             base.Tables.Add(this.tableprodusesoftware);
             this.tablestructuri = new structuriDataTable();
             base.Tables.Add(this.tablestructuri);
             this.tableutilizatori = new utilizatoriDataTable();
             base.Tables.Add(this.tableutilizatori);
+            this.tablevaloriniveluri = new valoriniveluriDataTable();
+            base.Tables.Add(this.tablevaloriniveluri);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private bool ShouldSerializefunctii() {
+        private bool ShouldSerializedenumiriniveluri() {
             return false;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private bool ShouldSerializeniveluri() {
+        private bool ShouldSerializefunctii() {
             return false;
         }
         
@@ -339,6 +365,12 @@ namespace TOP {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private bool ShouldSerializeutilizatori() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private bool ShouldSerializevaloriniveluri() {
             return false;
         }
         
@@ -398,10 +430,10 @@ namespace TOP {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public delegate void functiiRowChangeEventHandler(object sender, functiiRowChangeEvent e);
+        public delegate void denumiriniveluriRowChangeEventHandler(object sender, denumiriniveluriRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public delegate void niveluriRowChangeEventHandler(object sender, niveluriRowChangeEvent e);
+        public delegate void functiiRowChangeEventHandler(object sender, functiiRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void produsesoftwareRowChangeEventHandler(object sender, produsesoftwareRowChangeEvent e);
@@ -411,6 +443,512 @@ namespace TOP {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void utilizatoriRowChangeEventHandler(object sender, utilizatoriRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public delegate void valoriniveluriRowChangeEventHandler(object sender, valoriniveluriRowChangeEvent e);
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class denumiriniveluriDataTable : global::System.Data.TypedTableBase<denumiriniveluriRow> {
+            
+            private global::System.Data.DataColumn columncodstrucdenumiriniv;
+            
+            private global::System.Data.DataColumn columnnrniveluri;
+            
+            private global::System.Data.DataColumn columnnivela;
+            
+            private global::System.Data.DataColumn columnnivelb;
+            
+            private global::System.Data.DataColumn columnnivelc;
+            
+            private global::System.Data.DataColumn columnniveld;
+            
+            private global::System.Data.DataColumn columnnivele;
+            
+            private global::System.Data.DataColumn columnnivelf;
+            
+            private global::System.Data.DataColumn columnnivelg;
+            
+            private global::System.Data.DataColumn columnnivelh;
+            
+            private global::System.Data.DataColumn columnniveli;
+            
+            private global::System.Data.DataColumn columnnivelj;
+            
+            private global::System.Data.DataColumn columnnivelk;
+            
+            private global::System.Data.DataColumn columnnivell;
+            
+            private global::System.Data.DataColumn columnnivelm;
+            
+            private global::System.Data.DataColumn columnniveln;
+            
+            private global::System.Data.DataColumn columnnivelo;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public denumiriniveluriDataTable() {
+                this.TableName = "denumiriniveluri";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal denumiriniveluriDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected denumiriniveluriDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn codstrucdenumirinivColumn {
+                get {
+                    return this.columncodstrucdenumiriniv;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn nrniveluriColumn {
+                get {
+                    return this.columnnrniveluri;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn nivelaColumn {
+                get {
+                    return this.columnnivela;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn nivelbColumn {
+                get {
+                    return this.columnnivelb;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn nivelcColumn {
+                get {
+                    return this.columnnivelc;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn niveldColumn {
+                get {
+                    return this.columnniveld;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn niveleColumn {
+                get {
+                    return this.columnnivele;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn nivelfColumn {
+                get {
+                    return this.columnnivelf;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn nivelgColumn {
+                get {
+                    return this.columnnivelg;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn nivelhColumn {
+                get {
+                    return this.columnnivelh;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn niveliColumn {
+                get {
+                    return this.columnniveli;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn niveljColumn {
+                get {
+                    return this.columnnivelj;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn nivelkColumn {
+                get {
+                    return this.columnnivelk;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn nivellColumn {
+                get {
+                    return this.columnnivell;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn nivelmColumn {
+                get {
+                    return this.columnnivelm;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn nivelnColumn {
+                get {
+                    return this.columnniveln;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn niveloColumn {
+                get {
+                    return this.columnnivelo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public denumiriniveluriRow this[int index] {
+                get {
+                    return ((denumiriniveluriRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event denumiriniveluriRowChangeEventHandler denumiriniveluriRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event denumiriniveluriRowChangeEventHandler denumiriniveluriRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event denumiriniveluriRowChangeEventHandler denumiriniveluriRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event denumiriniveluriRowChangeEventHandler denumiriniveluriRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void AdddenumiriniveluriRow(denumiriniveluriRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public denumiriniveluriRow AdddenumiriniveluriRow(
+                        decimal codstrucdenumiriniv, 
+                        decimal nrniveluri, 
+                        string nivela, 
+                        string nivelb, 
+                        string nivelc, 
+                        string niveld, 
+                        string nivele, 
+                        string nivelf, 
+                        string nivelg, 
+                        string nivelh, 
+                        string niveli, 
+                        string nivelj, 
+                        string nivelk, 
+                        string nivell, 
+                        string nivelm, 
+                        string niveln, 
+                        string nivelo) {
+                denumiriniveluriRow rowdenumiriniveluriRow = ((denumiriniveluriRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        codstrucdenumiriniv,
+                        nrniveluri,
+                        nivela,
+                        nivelb,
+                        nivelc,
+                        niveld,
+                        nivele,
+                        nivelf,
+                        nivelg,
+                        nivelh,
+                        niveli,
+                        nivelj,
+                        nivelk,
+                        nivell,
+                        nivelm,
+                        niveln,
+                        nivelo};
+                rowdenumiriniveluriRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowdenumiriniveluriRow);
+                return rowdenumiriniveluriRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                denumiriniveluriDataTable cln = ((denumiriniveluriDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new denumiriniveluriDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columncodstrucdenumiriniv = base.Columns["codstrucdenumiriniv"];
+                this.columnnrniveluri = base.Columns["nrniveluri"];
+                this.columnnivela = base.Columns["nivela"];
+                this.columnnivelb = base.Columns["nivelb"];
+                this.columnnivelc = base.Columns["nivelc"];
+                this.columnniveld = base.Columns["niveld"];
+                this.columnnivele = base.Columns["nivele"];
+                this.columnnivelf = base.Columns["nivelf"];
+                this.columnnivelg = base.Columns["nivelg"];
+                this.columnnivelh = base.Columns["nivelh"];
+                this.columnniveli = base.Columns["niveli"];
+                this.columnnivelj = base.Columns["nivelj"];
+                this.columnnivelk = base.Columns["nivelk"];
+                this.columnnivell = base.Columns["nivell"];
+                this.columnnivelm = base.Columns["nivelm"];
+                this.columnniveln = base.Columns["niveln"];
+                this.columnnivelo = base.Columns["nivelo"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columncodstrucdenumiriniv = new global::System.Data.DataColumn("codstrucdenumiriniv", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncodstrucdenumiriniv);
+                this.columnnrniveluri = new global::System.Data.DataColumn("nrniveluri", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnrniveluri);
+                this.columnnivela = new global::System.Data.DataColumn("nivela", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnivela);
+                this.columnnivelb = new global::System.Data.DataColumn("nivelb", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnivelb);
+                this.columnnivelc = new global::System.Data.DataColumn("nivelc", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnivelc);
+                this.columnniveld = new global::System.Data.DataColumn("niveld", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnniveld);
+                this.columnnivele = new global::System.Data.DataColumn("nivele", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnivele);
+                this.columnnivelf = new global::System.Data.DataColumn("nivelf", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnivelf);
+                this.columnnivelg = new global::System.Data.DataColumn("nivelg", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnivelg);
+                this.columnnivelh = new global::System.Data.DataColumn("nivelh", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnivelh);
+                this.columnniveli = new global::System.Data.DataColumn("niveli", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnniveli);
+                this.columnnivelj = new global::System.Data.DataColumn("nivelj", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnivelj);
+                this.columnnivelk = new global::System.Data.DataColumn("nivelk", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnivelk);
+                this.columnnivell = new global::System.Data.DataColumn("nivell", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnivell);
+                this.columnnivelm = new global::System.Data.DataColumn("nivelm", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnivelm);
+                this.columnniveln = new global::System.Data.DataColumn("niveln", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnniveln);
+                this.columnnivelo = new global::System.Data.DataColumn("nivelo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnivelo);
+                this.columnnivela.MaxLength = 50;
+                this.columnnivelb.MaxLength = 50;
+                this.columnnivelc.MaxLength = 50;
+                this.columnniveld.MaxLength = 50;
+                this.columnnivele.MaxLength = 50;
+                this.columnnivelf.MaxLength = 50;
+                this.columnnivelg.MaxLength = 50;
+                this.columnnivelh.MaxLength = 50;
+                this.columnniveli.MaxLength = 50;
+                this.columnnivelj.MaxLength = 50;
+                this.columnnivelk.MaxLength = 50;
+                this.columnnivell.MaxLength = 50;
+                this.columnnivelm.MaxLength = 50;
+                this.columnniveln.MaxLength = 50;
+                this.columnnivelo.MaxLength = 50;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public denumiriniveluriRow NewdenumiriniveluriRow() {
+                return ((denumiriniveluriRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new denumiriniveluriRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(denumiriniveluriRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.denumiriniveluriRowChanged != null)) {
+                    this.denumiriniveluriRowChanged(this, new denumiriniveluriRowChangeEvent(((denumiriniveluriRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.denumiriniveluriRowChanging != null)) {
+                    this.denumiriniveluriRowChanging(this, new denumiriniveluriRowChangeEvent(((denumiriniveluriRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.denumiriniveluriRowDeleted != null)) {
+                    this.denumiriniveluriRowDeleted(this, new denumiriniveluriRowChangeEvent(((denumiriniveluriRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.denumiriniveluriRowDeleting != null)) {
+                    this.denumiriniveluriRowDeleting(this, new denumiriniveluriRowChangeEvent(((denumiriniveluriRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void RemovedenumiriniveluriRow(denumiriniveluriRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                dsTOP ds = new dsTOP();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "denumiriniveluriDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -674,520 +1212,6 @@ namespace TOP {
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
                 attribute2.FixedValue = "functiiDataTable";
-                type.Attributes.Add(attribute2);
-                type.Particle = sequence;
-                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
-                if (xs.Contains(dsSchema.TargetNamespace)) {
-                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
-                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
-                    try {
-                        global::System.Xml.Schema.XmlSchema schema = null;
-                        dsSchema.Write(s1);
-                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
-                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
-                            s2.SetLength(0);
-                            schema.Write(s2);
-                            if ((s1.Length == s2.Length)) {
-                                s1.Position = 0;
-                                s2.Position = 0;
-                                for (; ((s1.Position != s1.Length) 
-                                            && (s1.ReadByte() == s2.ReadByte())); ) {
-                                    ;
-                                }
-                                if ((s1.Position == s1.Length)) {
-                                    return type;
-                                }
-                            }
-                        }
-                    }
-                    finally {
-                        if ((s1 != null)) {
-                            s1.Close();
-                        }
-                        if ((s2 != null)) {
-                            s2.Close();
-                        }
-                    }
-                }
-                xs.Add(dsSchema);
-                return type;
-            }
-        }
-        
-        /// <summary>
-        ///Represents the strongly named DataTable class.
-        ///</summary>
-        [global::System.Serializable()]
-        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class niveluriDataTable : global::System.Data.TypedTableBase<niveluriRow> {
-            
-            private global::System.Data.DataColumn columncodstructuranivele;
-            
-            private global::System.Data.DataColumn columnnrnivele;
-            
-            private global::System.Data.DataColumn columnnivela;
-            
-            private global::System.Data.DataColumn columnnivelb;
-            
-            private global::System.Data.DataColumn columnnivelc;
-            
-            private global::System.Data.DataColumn columnniveld;
-            
-            private global::System.Data.DataColumn columnnivele;
-            
-            private global::System.Data.DataColumn columnnivelf;
-            
-            private global::System.Data.DataColumn columnnivelg;
-            
-            private global::System.Data.DataColumn columnnivelh;
-            
-            private global::System.Data.DataColumn columnniveli;
-            
-            private global::System.Data.DataColumn columnnivelj;
-            
-            private global::System.Data.DataColumn columnnivelk;
-            
-            private global::System.Data.DataColumn columnnivell;
-            
-            private global::System.Data.DataColumn columnnivelm;
-            
-            private global::System.Data.DataColumn columnniveln;
-            
-            private global::System.Data.DataColumn columnnivelo;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public niveluriDataTable() {
-                this.TableName = "niveluri";
-                this.BeginInit();
-                this.InitClass();
-                this.EndInit();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal niveluriDataTable(global::System.Data.DataTable table) {
-                this.TableName = table.TableName;
-                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
-                    this.CaseSensitive = table.CaseSensitive;
-                }
-                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
-                    this.Locale = table.Locale;
-                }
-                if ((table.Namespace != table.DataSet.Namespace)) {
-                    this.Namespace = table.Namespace;
-                }
-                this.Prefix = table.Prefix;
-                this.MinimumCapacity = table.MinimumCapacity;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected niveluriDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                    base(info, context) {
-                this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn codstructuraniveleColumn {
-                get {
-                    return this.columncodstructuranivele;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn nrniveleColumn {
-                get {
-                    return this.columnnrnivele;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn nivelaColumn {
-                get {
-                    return this.columnnivela;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn nivelbColumn {
-                get {
-                    return this.columnnivelb;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn nivelcColumn {
-                get {
-                    return this.columnnivelc;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn niveldColumn {
-                get {
-                    return this.columnniveld;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn niveleColumn {
-                get {
-                    return this.columnnivele;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn nivelfColumn {
-                get {
-                    return this.columnnivelf;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn nivelgColumn {
-                get {
-                    return this.columnnivelg;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn nivelhColumn {
-                get {
-                    return this.columnnivelh;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn niveliColumn {
-                get {
-                    return this.columnniveli;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn niveljColumn {
-                get {
-                    return this.columnnivelj;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn nivelkColumn {
-                get {
-                    return this.columnnivelk;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn nivellColumn {
-                get {
-                    return this.columnnivell;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn nivelmColumn {
-                get {
-                    return this.columnnivelm;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn nivelnColumn {
-                get {
-                    return this.columnniveln;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn niveloColumn {
-                get {
-                    return this.columnnivelo;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            [global::System.ComponentModel.Browsable(false)]
-            public int Count {
-                get {
-                    return this.Rows.Count;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public niveluriRow this[int index] {
-                get {
-                    return ((niveluriRow)(this.Rows[index]));
-                }
-            }
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event niveluriRowChangeEventHandler niveluriRowChanging;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event niveluriRowChangeEventHandler niveluriRowChanged;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event niveluriRowChangeEventHandler niveluriRowDeleting;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event niveluriRowChangeEventHandler niveluriRowDeleted;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void AddniveluriRow(niveluriRow row) {
-                this.Rows.Add(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public niveluriRow AddniveluriRow(
-                        decimal codstructuranivele, 
-                        decimal nrnivele, 
-                        string nivela, 
-                        string nivelb, 
-                        string nivelc, 
-                        string niveld, 
-                        string nivele, 
-                        string nivelf, 
-                        string nivelg, 
-                        string nivelh, 
-                        string niveli, 
-                        string nivelj, 
-                        string nivelk, 
-                        string nivell, 
-                        string nivelm, 
-                        string niveln, 
-                        string nivelo) {
-                niveluriRow rowniveluriRow = ((niveluriRow)(this.NewRow()));
-                object[] columnValuesArray = new object[] {
-                        codstructuranivele,
-                        nrnivele,
-                        nivela,
-                        nivelb,
-                        nivelc,
-                        niveld,
-                        nivele,
-                        nivelf,
-                        nivelg,
-                        nivelh,
-                        niveli,
-                        nivelj,
-                        nivelk,
-                        nivell,
-                        nivelm,
-                        niveln,
-                        nivelo};
-                rowniveluriRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowniveluriRow);
-                return rowniveluriRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public niveluriRow FindBynrnivele(decimal nrnivele) {
-                return ((niveluriRow)(this.Rows.Find(new object[] {
-                            nrnivele})));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public override global::System.Data.DataTable Clone() {
-                niveluriDataTable cln = ((niveluriDataTable)(base.Clone()));
-                cln.InitVars();
-                return cln;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override global::System.Data.DataTable CreateInstance() {
-                return new niveluriDataTable();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal void InitVars() {
-                this.columncodstructuranivele = base.Columns["codstructuranivele"];
-                this.columnnrnivele = base.Columns["nrnivele"];
-                this.columnnivela = base.Columns["nivela"];
-                this.columnnivelb = base.Columns["nivelb"];
-                this.columnnivelc = base.Columns["nivelc"];
-                this.columnniveld = base.Columns["niveld"];
-                this.columnnivele = base.Columns["nivele"];
-                this.columnnivelf = base.Columns["nivelf"];
-                this.columnnivelg = base.Columns["nivelg"];
-                this.columnnivelh = base.Columns["nivelh"];
-                this.columnniveli = base.Columns["niveli"];
-                this.columnnivelj = base.Columns["nivelj"];
-                this.columnnivelk = base.Columns["nivelk"];
-                this.columnnivell = base.Columns["nivell"];
-                this.columnnivelm = base.Columns["nivelm"];
-                this.columnniveln = base.Columns["niveln"];
-                this.columnnivelo = base.Columns["nivelo"];
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            private void InitClass() {
-                this.columncodstructuranivele = new global::System.Data.DataColumn("codstructuranivele", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columncodstructuranivele);
-                this.columnnrnivele = new global::System.Data.DataColumn("nrnivele", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnnrnivele);
-                this.columnnivela = new global::System.Data.DataColumn("nivela", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnnivela);
-                this.columnnivelb = new global::System.Data.DataColumn("nivelb", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnnivelb);
-                this.columnnivelc = new global::System.Data.DataColumn("nivelc", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnnivelc);
-                this.columnniveld = new global::System.Data.DataColumn("niveld", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnniveld);
-                this.columnnivele = new global::System.Data.DataColumn("nivele", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnnivele);
-                this.columnnivelf = new global::System.Data.DataColumn("nivelf", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnnivelf);
-                this.columnnivelg = new global::System.Data.DataColumn("nivelg", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnnivelg);
-                this.columnnivelh = new global::System.Data.DataColumn("nivelh", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnnivelh);
-                this.columnniveli = new global::System.Data.DataColumn("niveli", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnniveli);
-                this.columnnivelj = new global::System.Data.DataColumn("nivelj", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnnivelj);
-                this.columnnivelk = new global::System.Data.DataColumn("nivelk", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnnivelk);
-                this.columnnivell = new global::System.Data.DataColumn("nivell", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnnivell);
-                this.columnnivelm = new global::System.Data.DataColumn("nivelm", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnnivelm);
-                this.columnniveln = new global::System.Data.DataColumn("niveln", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnniveln);
-                this.columnnivelo = new global::System.Data.DataColumn("nivelo", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnnivelo);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnnrnivele}, true));
-                this.columnnrnivele.AllowDBNull = false;
-                this.columnnrnivele.Unique = true;
-                this.columnnivela.MaxLength = 50;
-                this.columnnivelb.MaxLength = 50;
-                this.columnnivelc.MaxLength = 50;
-                this.columnniveld.MaxLength = 50;
-                this.columnnivele.MaxLength = 50;
-                this.columnnivelf.MaxLength = 50;
-                this.columnnivelg.MaxLength = 50;
-                this.columnnivelh.MaxLength = 50;
-                this.columnniveli.MaxLength = 50;
-                this.columnnivelj.MaxLength = 50;
-                this.columnnivelk.MaxLength = 50;
-                this.columnnivell.MaxLength = 50;
-                this.columnnivelm.MaxLength = 50;
-                this.columnniveln.MaxLength = 50;
-                this.columnnivelo.MaxLength = 50;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public niveluriRow NewniveluriRow() {
-                return ((niveluriRow)(this.NewRow()));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new niveluriRow(builder);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override global::System.Type GetRowType() {
-                return typeof(niveluriRow);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanged(e);
-                if ((this.niveluriRowChanged != null)) {
-                    this.niveluriRowChanged(this, new niveluriRowChangeEvent(((niveluriRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanging(e);
-                if ((this.niveluriRowChanging != null)) {
-                    this.niveluriRowChanging(this, new niveluriRowChangeEvent(((niveluriRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleted(e);
-                if ((this.niveluriRowDeleted != null)) {
-                    this.niveluriRowDeleted(this, new niveluriRowChangeEvent(((niveluriRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleting(e);
-                if ((this.niveluriRowDeleting != null)) {
-                    this.niveluriRowDeleting(this, new niveluriRowChangeEvent(((niveluriRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void RemoveniveluriRow(niveluriRow row) {
-                this.Rows.Remove(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
-                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                dsTOP ds = new dsTOP();
-                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
-                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
-                any1.MinOccurs = new decimal(0);
-                any1.MaxOccurs = decimal.MaxValue;
-                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any1);
-                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
-                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
-                any2.MinOccurs = new decimal(1);
-                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any2);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute1.Name = "namespace";
-                attribute1.FixedValue = ds.Namespace;
-                type.Attributes.Add(attribute1);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "niveluriDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -2135,6 +2159,1001 @@ namespace TOP {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class valoriniveluriDataTable : global::System.Data.TypedTableBase<valoriniveluriRow> {
+            
+            private global::System.Data.DataColumn columncodstrucvaloriniv;
+            
+            private global::System.Data.DataColumn columnnrniveluri;
+            
+            private global::System.Data.DataColumn columnnivela;
+            
+            private global::System.Data.DataColumn columnnivelb;
+            
+            private global::System.Data.DataColumn columnnivelc;
+            
+            private global::System.Data.DataColumn columnniveld;
+            
+            private global::System.Data.DataColumn columnnivele;
+            
+            private global::System.Data.DataColumn columnnivelf;
+            
+            private global::System.Data.DataColumn columnnivelg;
+            
+            private global::System.Data.DataColumn columnnivelh;
+            
+            private global::System.Data.DataColumn columnniveli;
+            
+            private global::System.Data.DataColumn columnnivelj;
+            
+            private global::System.Data.DataColumn columnnivelk;
+            
+            private global::System.Data.DataColumn columnnivell;
+            
+            private global::System.Data.DataColumn columnnivelm;
+            
+            private global::System.Data.DataColumn columnniveln;
+            
+            private global::System.Data.DataColumn columnnivelo;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public valoriniveluriDataTable() {
+                this.TableName = "valoriniveluri";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal valoriniveluriDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected valoriniveluriDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn codstrucvalorinivColumn {
+                get {
+                    return this.columncodstrucvaloriniv;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn nrniveluriColumn {
+                get {
+                    return this.columnnrniveluri;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn nivelaColumn {
+                get {
+                    return this.columnnivela;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn nivelbColumn {
+                get {
+                    return this.columnnivelb;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn nivelcColumn {
+                get {
+                    return this.columnnivelc;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn niveldColumn {
+                get {
+                    return this.columnniveld;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn niveleColumn {
+                get {
+                    return this.columnnivele;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn nivelfColumn {
+                get {
+                    return this.columnnivelf;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn nivelgColumn {
+                get {
+                    return this.columnnivelg;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn nivelhColumn {
+                get {
+                    return this.columnnivelh;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn niveliColumn {
+                get {
+                    return this.columnniveli;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn niveljColumn {
+                get {
+                    return this.columnnivelj;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn nivelkColumn {
+                get {
+                    return this.columnnivelk;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn nivellColumn {
+                get {
+                    return this.columnnivell;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn nivelmColumn {
+                get {
+                    return this.columnnivelm;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn nivelnColumn {
+                get {
+                    return this.columnniveln;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn niveloColumn {
+                get {
+                    return this.columnnivelo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public valoriniveluriRow this[int index] {
+                get {
+                    return ((valoriniveluriRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event valoriniveluriRowChangeEventHandler valoriniveluriRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event valoriniveluriRowChangeEventHandler valoriniveluriRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event valoriniveluriRowChangeEventHandler valoriniveluriRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event valoriniveluriRowChangeEventHandler valoriniveluriRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void AddvaloriniveluriRow(valoriniveluriRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public valoriniveluriRow AddvaloriniveluriRow(
+                        decimal codstrucvaloriniv, 
+                        decimal nrniveluri, 
+                        string nivela, 
+                        string nivelb, 
+                        string nivelc, 
+                        string niveld, 
+                        string nivele, 
+                        string nivelf, 
+                        string nivelg, 
+                        string nivelh, 
+                        string niveli, 
+                        string nivelj, 
+                        string nivelk, 
+                        string nivell, 
+                        string nivelm, 
+                        string niveln, 
+                        string nivelo) {
+                valoriniveluriRow rowvaloriniveluriRow = ((valoriniveluriRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        codstrucvaloriniv,
+                        nrniveluri,
+                        nivela,
+                        nivelb,
+                        nivelc,
+                        niveld,
+                        nivele,
+                        nivelf,
+                        nivelg,
+                        nivelh,
+                        niveli,
+                        nivelj,
+                        nivelk,
+                        nivell,
+                        nivelm,
+                        niveln,
+                        nivelo};
+                rowvaloriniveluriRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowvaloriniveluriRow);
+                return rowvaloriniveluriRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                valoriniveluriDataTable cln = ((valoriniveluriDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new valoriniveluriDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columncodstrucvaloriniv = base.Columns["codstrucvaloriniv"];
+                this.columnnrniveluri = base.Columns["nrniveluri"];
+                this.columnnivela = base.Columns["nivela"];
+                this.columnnivelb = base.Columns["nivelb"];
+                this.columnnivelc = base.Columns["nivelc"];
+                this.columnniveld = base.Columns["niveld"];
+                this.columnnivele = base.Columns["nivele"];
+                this.columnnivelf = base.Columns["nivelf"];
+                this.columnnivelg = base.Columns["nivelg"];
+                this.columnnivelh = base.Columns["nivelh"];
+                this.columnniveli = base.Columns["niveli"];
+                this.columnnivelj = base.Columns["nivelj"];
+                this.columnnivelk = base.Columns["nivelk"];
+                this.columnnivell = base.Columns["nivell"];
+                this.columnnivelm = base.Columns["nivelm"];
+                this.columnniveln = base.Columns["niveln"];
+                this.columnnivelo = base.Columns["nivelo"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columncodstrucvaloriniv = new global::System.Data.DataColumn("codstrucvaloriniv", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncodstrucvaloriniv);
+                this.columnnrniveluri = new global::System.Data.DataColumn("nrniveluri", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnrniveluri);
+                this.columnnivela = new global::System.Data.DataColumn("nivela", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnivela);
+                this.columnnivelb = new global::System.Data.DataColumn("nivelb", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnivelb);
+                this.columnnivelc = new global::System.Data.DataColumn("nivelc", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnivelc);
+                this.columnniveld = new global::System.Data.DataColumn("niveld", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnniveld);
+                this.columnnivele = new global::System.Data.DataColumn("nivele", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnivele);
+                this.columnnivelf = new global::System.Data.DataColumn("nivelf", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnivelf);
+                this.columnnivelg = new global::System.Data.DataColumn("nivelg", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnivelg);
+                this.columnnivelh = new global::System.Data.DataColumn("nivelh", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnivelh);
+                this.columnniveli = new global::System.Data.DataColumn("niveli", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnniveli);
+                this.columnnivelj = new global::System.Data.DataColumn("nivelj", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnivelj);
+                this.columnnivelk = new global::System.Data.DataColumn("nivelk", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnivelk);
+                this.columnnivell = new global::System.Data.DataColumn("nivell", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnivell);
+                this.columnnivelm = new global::System.Data.DataColumn("nivelm", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnivelm);
+                this.columnniveln = new global::System.Data.DataColumn("niveln", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnniveln);
+                this.columnnivelo = new global::System.Data.DataColumn("nivelo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnivelo);
+                this.columnnivela.MaxLength = 50;
+                this.columnnivelb.MaxLength = 50;
+                this.columnnivelc.MaxLength = 50;
+                this.columnniveld.MaxLength = 50;
+                this.columnnivele.MaxLength = 50;
+                this.columnnivelf.MaxLength = 50;
+                this.columnnivelg.MaxLength = 50;
+                this.columnnivelh.MaxLength = 50;
+                this.columnniveli.MaxLength = 50;
+                this.columnnivelj.MaxLength = 50;
+                this.columnnivelk.MaxLength = 50;
+                this.columnnivell.MaxLength = 50;
+                this.columnnivelm.MaxLength = 50;
+                this.columnniveln.MaxLength = 50;
+                this.columnnivelo.MaxLength = 50;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public valoriniveluriRow NewvaloriniveluriRow() {
+                return ((valoriniveluriRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new valoriniveluriRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(valoriniveluriRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.valoriniveluriRowChanged != null)) {
+                    this.valoriniveluriRowChanged(this, new valoriniveluriRowChangeEvent(((valoriniveluriRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.valoriniveluriRowChanging != null)) {
+                    this.valoriniveluriRowChanging(this, new valoriniveluriRowChangeEvent(((valoriniveluriRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.valoriniveluriRowDeleted != null)) {
+                    this.valoriniveluriRowDeleted(this, new valoriniveluriRowChangeEvent(((valoriniveluriRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.valoriniveluriRowDeleting != null)) {
+                    this.valoriniveluriRowDeleting(this, new valoriniveluriRowChangeEvent(((valoriniveluriRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void RemovevaloriniveluriRow(valoriniveluriRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                dsTOP ds = new dsTOP();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "valoriniveluriDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class denumiriniveluriRow : global::System.Data.DataRow {
+            
+            private denumiriniveluriDataTable tabledenumiriniveluri;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal denumiriniveluriRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tabledenumiriniveluri = ((denumiriniveluriDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal codstrucdenumiriniv {
+                get {
+                    try {
+                        return ((decimal)(this[this.tabledenumiriniveluri.codstrucdenumirinivColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'codstrucdenumiriniv\' in table \'denumiriniveluri\' is DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tabledenumiriniveluri.codstrucdenumirinivColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal nrniveluri {
+                get {
+                    try {
+                        return ((decimal)(this[this.tabledenumiriniveluri.nrniveluriColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nrniveluri\' in table \'denumiriniveluri\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledenumiriniveluri.nrniveluriColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string nivela {
+                get {
+                    try {
+                        return ((string)(this[this.tabledenumiriniveluri.nivelaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nivela\' in table \'denumiriniveluri\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledenumiriniveluri.nivelaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string nivelb {
+                get {
+                    try {
+                        return ((string)(this[this.tabledenumiriniveluri.nivelbColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nivelb\' in table \'denumiriniveluri\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledenumiriniveluri.nivelbColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string nivelc {
+                get {
+                    try {
+                        return ((string)(this[this.tabledenumiriniveluri.nivelcColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nivelc\' in table \'denumiriniveluri\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledenumiriniveluri.nivelcColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string niveld {
+                get {
+                    try {
+                        return ((string)(this[this.tabledenumiriniveluri.niveldColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'niveld\' in table \'denumiriniveluri\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledenumiriniveluri.niveldColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string nivele {
+                get {
+                    try {
+                        return ((string)(this[this.tabledenumiriniveluri.niveleColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nivele\' in table \'denumiriniveluri\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledenumiriniveluri.niveleColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string nivelf {
+                get {
+                    try {
+                        return ((string)(this[this.tabledenumiriniveluri.nivelfColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nivelf\' in table \'denumiriniveluri\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledenumiriniveluri.nivelfColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string nivelg {
+                get {
+                    try {
+                        return ((string)(this[this.tabledenumiriniveluri.nivelgColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nivelg\' in table \'denumiriniveluri\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledenumiriniveluri.nivelgColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string nivelh {
+                get {
+                    try {
+                        return ((string)(this[this.tabledenumiriniveluri.nivelhColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nivelh\' in table \'denumiriniveluri\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledenumiriniveluri.nivelhColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string niveli {
+                get {
+                    try {
+                        return ((string)(this[this.tabledenumiriniveluri.niveliColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'niveli\' in table \'denumiriniveluri\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledenumiriniveluri.niveliColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string nivelj {
+                get {
+                    try {
+                        return ((string)(this[this.tabledenumiriniveluri.niveljColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nivelj\' in table \'denumiriniveluri\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledenumiriniveluri.niveljColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string nivelk {
+                get {
+                    try {
+                        return ((string)(this[this.tabledenumiriniveluri.nivelkColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nivelk\' in table \'denumiriniveluri\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledenumiriniveluri.nivelkColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string nivell {
+                get {
+                    try {
+                        return ((string)(this[this.tabledenumiriniveluri.nivellColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nivell\' in table \'denumiriniveluri\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledenumiriniveluri.nivellColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string nivelm {
+                get {
+                    try {
+                        return ((string)(this[this.tabledenumiriniveluri.nivelmColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nivelm\' in table \'denumiriniveluri\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledenumiriniveluri.nivelmColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string niveln {
+                get {
+                    try {
+                        return ((string)(this[this.tabledenumiriniveluri.nivelnColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'niveln\' in table \'denumiriniveluri\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledenumiriniveluri.nivelnColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string nivelo {
+                get {
+                    try {
+                        return ((string)(this[this.tabledenumiriniveluri.niveloColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nivelo\' in table \'denumiriniveluri\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledenumiriniveluri.niveloColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IscodstrucdenumirinivNull() {
+                return this.IsNull(this.tabledenumiriniveluri.codstrucdenumirinivColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetcodstrucdenumirinivNull() {
+                this[this.tabledenumiriniveluri.codstrucdenumirinivColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsnrniveluriNull() {
+                return this.IsNull(this.tabledenumiriniveluri.nrniveluriColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetnrniveluriNull() {
+                this[this.tabledenumiriniveluri.nrniveluriColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsnivelaNull() {
+                return this.IsNull(this.tabledenumiriniveluri.nivelaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetnivelaNull() {
+                this[this.tabledenumiriniveluri.nivelaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsnivelbNull() {
+                return this.IsNull(this.tabledenumiriniveluri.nivelbColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetnivelbNull() {
+                this[this.tabledenumiriniveluri.nivelbColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsnivelcNull() {
+                return this.IsNull(this.tabledenumiriniveluri.nivelcColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetnivelcNull() {
+                this[this.tabledenumiriniveluri.nivelcColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsniveldNull() {
+                return this.IsNull(this.tabledenumiriniveluri.niveldColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetniveldNull() {
+                this[this.tabledenumiriniveluri.niveldColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsniveleNull() {
+                return this.IsNull(this.tabledenumiriniveluri.niveleColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetniveleNull() {
+                this[this.tabledenumiriniveluri.niveleColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsnivelfNull() {
+                return this.IsNull(this.tabledenumiriniveluri.nivelfColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetnivelfNull() {
+                this[this.tabledenumiriniveluri.nivelfColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsnivelgNull() {
+                return this.IsNull(this.tabledenumiriniveluri.nivelgColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetnivelgNull() {
+                this[this.tabledenumiriniveluri.nivelgColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsnivelhNull() {
+                return this.IsNull(this.tabledenumiriniveluri.nivelhColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetnivelhNull() {
+                this[this.tabledenumiriniveluri.nivelhColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsniveliNull() {
+                return this.IsNull(this.tabledenumiriniveluri.niveliColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetniveliNull() {
+                this[this.tabledenumiriniveluri.niveliColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsniveljNull() {
+                return this.IsNull(this.tabledenumiriniveluri.niveljColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetniveljNull() {
+                this[this.tabledenumiriniveluri.niveljColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsnivelkNull() {
+                return this.IsNull(this.tabledenumiriniveluri.nivelkColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetnivelkNull() {
+                this[this.tabledenumiriniveluri.nivelkColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsnivellNull() {
+                return this.IsNull(this.tabledenumiriniveluri.nivellColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetnivellNull() {
+                this[this.tabledenumiriniveluri.nivellColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsnivelmNull() {
+                return this.IsNull(this.tabledenumiriniveluri.nivelmColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetnivelmNull() {
+                this[this.tabledenumiriniveluri.nivelmColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsnivelnNull() {
+                return this.IsNull(this.tabledenumiriniveluri.nivelnColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetnivelnNull() {
+                this[this.tabledenumiriniveluri.nivelnColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsniveloNull() {
+                return this.IsNull(this.tabledenumiriniveluri.niveloColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetniveloNull() {
+                this[this.tabledenumiriniveluri.niveloColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class functiiRow : global::System.Data.DataRow {
@@ -2241,480 +3260,6 @@ namespace TOP {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetactivarefunctieNull() {
                 this[this.tablefunctii.activarefunctieColumn] = global::System.Convert.DBNull;
-            }
-        }
-        
-        /// <summary>
-        ///Represents strongly named DataRow class.
-        ///</summary>
-        public partial class niveluriRow : global::System.Data.DataRow {
-            
-            private niveluriDataTable tableniveluri;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal niveluriRow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this.tableniveluri = ((niveluriDataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public decimal codstructuranivele {
-                get {
-                    try {
-                        return ((decimal)(this[this.tableniveluri.codstructuraniveleColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'codstructuranivele\' in table \'niveluri\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableniveluri.codstructuraniveleColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public decimal nrnivele {
-                get {
-                    return ((decimal)(this[this.tableniveluri.nrniveleColumn]));
-                }
-                set {
-                    this[this.tableniveluri.nrniveleColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string nivela {
-                get {
-                    try {
-                        return ((string)(this[this.tableniveluri.nivelaColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'nivela\' in table \'niveluri\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableniveluri.nivelaColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string nivelb {
-                get {
-                    try {
-                        return ((string)(this[this.tableniveluri.nivelbColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'nivelb\' in table \'niveluri\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableniveluri.nivelbColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string nivelc {
-                get {
-                    try {
-                        return ((string)(this[this.tableniveluri.nivelcColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'nivelc\' in table \'niveluri\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableniveluri.nivelcColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string niveld {
-                get {
-                    try {
-                        return ((string)(this[this.tableniveluri.niveldColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'niveld\' in table \'niveluri\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableniveluri.niveldColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string nivele {
-                get {
-                    try {
-                        return ((string)(this[this.tableniveluri.niveleColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'nivele\' in table \'niveluri\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableniveluri.niveleColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string nivelf {
-                get {
-                    try {
-                        return ((string)(this[this.tableniveluri.nivelfColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'nivelf\' in table \'niveluri\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableniveluri.nivelfColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string nivelg {
-                get {
-                    try {
-                        return ((string)(this[this.tableniveluri.nivelgColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'nivelg\' in table \'niveluri\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableniveluri.nivelgColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string nivelh {
-                get {
-                    try {
-                        return ((string)(this[this.tableniveluri.nivelhColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'nivelh\' in table \'niveluri\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableniveluri.nivelhColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string niveli {
-                get {
-                    try {
-                        return ((string)(this[this.tableniveluri.niveliColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'niveli\' in table \'niveluri\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableniveluri.niveliColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string nivelj {
-                get {
-                    try {
-                        return ((string)(this[this.tableniveluri.niveljColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'nivelj\' in table \'niveluri\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableniveluri.niveljColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string nivelk {
-                get {
-                    try {
-                        return ((string)(this[this.tableniveluri.nivelkColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'nivelk\' in table \'niveluri\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableniveluri.nivelkColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string nivell {
-                get {
-                    try {
-                        return ((string)(this[this.tableniveluri.nivellColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'nivell\' in table \'niveluri\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableniveluri.nivellColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string nivelm {
-                get {
-                    try {
-                        return ((string)(this[this.tableniveluri.nivelmColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'nivelm\' in table \'niveluri\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableniveluri.nivelmColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string niveln {
-                get {
-                    try {
-                        return ((string)(this[this.tableniveluri.nivelnColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'niveln\' in table \'niveluri\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableniveluri.nivelnColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string nivelo {
-                get {
-                    try {
-                        return ((string)(this[this.tableniveluri.niveloColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'nivelo\' in table \'niveluri\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableniveluri.niveloColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IscodstructuraniveleNull() {
-                return this.IsNull(this.tableniveluri.codstructuraniveleColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetcodstructuraniveleNull() {
-                this[this.tableniveluri.codstructuraniveleColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsnivelaNull() {
-                return this.IsNull(this.tableniveluri.nivelaColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetnivelaNull() {
-                this[this.tableniveluri.nivelaColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsnivelbNull() {
-                return this.IsNull(this.tableniveluri.nivelbColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetnivelbNull() {
-                this[this.tableniveluri.nivelbColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsnivelcNull() {
-                return this.IsNull(this.tableniveluri.nivelcColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetnivelcNull() {
-                this[this.tableniveluri.nivelcColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsniveldNull() {
-                return this.IsNull(this.tableniveluri.niveldColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetniveldNull() {
-                this[this.tableniveluri.niveldColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsniveleNull() {
-                return this.IsNull(this.tableniveluri.niveleColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetniveleNull() {
-                this[this.tableniveluri.niveleColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsnivelfNull() {
-                return this.IsNull(this.tableniveluri.nivelfColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetnivelfNull() {
-                this[this.tableniveluri.nivelfColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsnivelgNull() {
-                return this.IsNull(this.tableniveluri.nivelgColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetnivelgNull() {
-                this[this.tableniveluri.nivelgColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsnivelhNull() {
-                return this.IsNull(this.tableniveluri.nivelhColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetnivelhNull() {
-                this[this.tableniveluri.nivelhColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsniveliNull() {
-                return this.IsNull(this.tableniveluri.niveliColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetniveliNull() {
-                this[this.tableniveluri.niveliColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsniveljNull() {
-                return this.IsNull(this.tableniveluri.niveljColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetniveljNull() {
-                this[this.tableniveluri.niveljColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsnivelkNull() {
-                return this.IsNull(this.tableniveluri.nivelkColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetnivelkNull() {
-                this[this.tableniveluri.nivelkColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsnivellNull() {
-                return this.IsNull(this.tableniveluri.nivellColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetnivellNull() {
-                this[this.tableniveluri.nivellColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsnivelmNull() {
-                return this.IsNull(this.tableniveluri.nivelmColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetnivelmNull() {
-                this[this.tableniveluri.nivelmColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsnivelnNull() {
-                return this.IsNull(this.tableniveluri.nivelnColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetnivelnNull() {
-                this[this.tableniveluri.nivelnColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsniveloNull() {
-                return this.IsNull(this.tableniveluri.niveloColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetniveloNull() {
-                this[this.tableniveluri.niveloColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -3049,6 +3594,531 @@ namespace TOP {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class valoriniveluriRow : global::System.Data.DataRow {
+            
+            private valoriniveluriDataTable tablevaloriniveluri;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal valoriniveluriRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tablevaloriniveluri = ((valoriniveluriDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal codstrucvaloriniv {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablevaloriniveluri.codstrucvalorinivColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'codstrucvaloriniv\' in table \'valoriniveluri\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablevaloriniveluri.codstrucvalorinivColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal nrniveluri {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablevaloriniveluri.nrniveluriColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nrniveluri\' in table \'valoriniveluri\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablevaloriniveluri.nrniveluriColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string nivela {
+                get {
+                    try {
+                        return ((string)(this[this.tablevaloriniveluri.nivelaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nivela\' in table \'valoriniveluri\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablevaloriniveluri.nivelaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string nivelb {
+                get {
+                    try {
+                        return ((string)(this[this.tablevaloriniveluri.nivelbColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nivelb\' in table \'valoriniveluri\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablevaloriniveluri.nivelbColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string nivelc {
+                get {
+                    try {
+                        return ((string)(this[this.tablevaloriniveluri.nivelcColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nivelc\' in table \'valoriniveluri\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablevaloriniveluri.nivelcColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string niveld {
+                get {
+                    try {
+                        return ((string)(this[this.tablevaloriniveluri.niveldColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'niveld\' in table \'valoriniveluri\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablevaloriniveluri.niveldColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string nivele {
+                get {
+                    try {
+                        return ((string)(this[this.tablevaloriniveluri.niveleColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nivele\' in table \'valoriniveluri\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablevaloriniveluri.niveleColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string nivelf {
+                get {
+                    try {
+                        return ((string)(this[this.tablevaloriniveluri.nivelfColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nivelf\' in table \'valoriniveluri\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablevaloriniveluri.nivelfColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string nivelg {
+                get {
+                    try {
+                        return ((string)(this[this.tablevaloriniveluri.nivelgColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nivelg\' in table \'valoriniveluri\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablevaloriniveluri.nivelgColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string nivelh {
+                get {
+                    try {
+                        return ((string)(this[this.tablevaloriniveluri.nivelhColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nivelh\' in table \'valoriniveluri\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablevaloriniveluri.nivelhColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string niveli {
+                get {
+                    try {
+                        return ((string)(this[this.tablevaloriniveluri.niveliColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'niveli\' in table \'valoriniveluri\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablevaloriniveluri.niveliColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string nivelj {
+                get {
+                    try {
+                        return ((string)(this[this.tablevaloriniveluri.niveljColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nivelj\' in table \'valoriniveluri\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablevaloriniveluri.niveljColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string nivelk {
+                get {
+                    try {
+                        return ((string)(this[this.tablevaloriniveluri.nivelkColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nivelk\' in table \'valoriniveluri\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablevaloriniveluri.nivelkColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string nivell {
+                get {
+                    try {
+                        return ((string)(this[this.tablevaloriniveluri.nivellColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nivell\' in table \'valoriniveluri\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablevaloriniveluri.nivellColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string nivelm {
+                get {
+                    try {
+                        return ((string)(this[this.tablevaloriniveluri.nivelmColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nivelm\' in table \'valoriniveluri\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablevaloriniveluri.nivelmColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string niveln {
+                get {
+                    try {
+                        return ((string)(this[this.tablevaloriniveluri.nivelnColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'niveln\' in table \'valoriniveluri\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablevaloriniveluri.nivelnColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string nivelo {
+                get {
+                    try {
+                        return ((string)(this[this.tablevaloriniveluri.niveloColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nivelo\' in table \'valoriniveluri\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablevaloriniveluri.niveloColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IscodstrucvalorinivNull() {
+                return this.IsNull(this.tablevaloriniveluri.codstrucvalorinivColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetcodstrucvalorinivNull() {
+                this[this.tablevaloriniveluri.codstrucvalorinivColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsnrniveluriNull() {
+                return this.IsNull(this.tablevaloriniveluri.nrniveluriColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetnrniveluriNull() {
+                this[this.tablevaloriniveluri.nrniveluriColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsnivelaNull() {
+                return this.IsNull(this.tablevaloriniveluri.nivelaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetnivelaNull() {
+                this[this.tablevaloriniveluri.nivelaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsnivelbNull() {
+                return this.IsNull(this.tablevaloriniveluri.nivelbColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetnivelbNull() {
+                this[this.tablevaloriniveluri.nivelbColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsnivelcNull() {
+                return this.IsNull(this.tablevaloriniveluri.nivelcColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetnivelcNull() {
+                this[this.tablevaloriniveluri.nivelcColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsniveldNull() {
+                return this.IsNull(this.tablevaloriniveluri.niveldColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetniveldNull() {
+                this[this.tablevaloriniveluri.niveldColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsniveleNull() {
+                return this.IsNull(this.tablevaloriniveluri.niveleColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetniveleNull() {
+                this[this.tablevaloriniveluri.niveleColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsnivelfNull() {
+                return this.IsNull(this.tablevaloriniveluri.nivelfColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetnivelfNull() {
+                this[this.tablevaloriniveluri.nivelfColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsnivelgNull() {
+                return this.IsNull(this.tablevaloriniveluri.nivelgColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetnivelgNull() {
+                this[this.tablevaloriniveluri.nivelgColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsnivelhNull() {
+                return this.IsNull(this.tablevaloriniveluri.nivelhColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetnivelhNull() {
+                this[this.tablevaloriniveluri.nivelhColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsniveliNull() {
+                return this.IsNull(this.tablevaloriniveluri.niveliColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetniveliNull() {
+                this[this.tablevaloriniveluri.niveliColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsniveljNull() {
+                return this.IsNull(this.tablevaloriniveluri.niveljColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetniveljNull() {
+                this[this.tablevaloriniveluri.niveljColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsnivelkNull() {
+                return this.IsNull(this.tablevaloriniveluri.nivelkColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetnivelkNull() {
+                this[this.tablevaloriniveluri.nivelkColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsnivellNull() {
+                return this.IsNull(this.tablevaloriniveluri.nivellColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetnivellNull() {
+                this[this.tablevaloriniveluri.nivellColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsnivelmNull() {
+                return this.IsNull(this.tablevaloriniveluri.nivelmColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetnivelmNull() {
+                this[this.tablevaloriniveluri.nivelmColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsnivelnNull() {
+                return this.IsNull(this.tablevaloriniveluri.nivelnColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetnivelnNull() {
+                this[this.tablevaloriniveluri.nivelnColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsniveloNull() {
+                return this.IsNull(this.tablevaloriniveluri.niveloColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetniveloNull() {
+                this[this.tablevaloriniveluri.niveloColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class denumiriniveluriRowChangeEvent : global::System.EventArgs {
+            
+            private denumiriniveluriRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public denumiriniveluriRowChangeEvent(denumiriniveluriRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public denumiriniveluriRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -3068,40 +4138,6 @@ namespace TOP {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public functiiRow Row {
-                get {
-                    return this.eventRow;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataRowAction Action {
-                get {
-                    return this.eventAction;
-                }
-            }
-        }
-        
-        /// <summary>
-        ///Row event argument class
-        ///</summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public class niveluriRowChangeEvent : global::System.EventArgs {
-            
-            private niveluriRow eventRow;
-            
-            private global::System.Data.DataRowAction eventAction;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public niveluriRowChangeEvent(niveluriRow row, global::System.Data.DataRowAction action) {
-                this.eventRow = row;
-                this.eventAction = action;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public niveluriRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -3217,10 +4253,409 @@ namespace TOP {
                 }
             }
         }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class valoriniveluriRowChangeEvent : global::System.EventArgs {
+            
+            private valoriniveluriRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public valoriniveluriRowChangeEvent(valoriniveluriRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public valoriniveluriRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
     }
 }
 namespace TOP._00Utilitare.dsTOPTableAdapters {
     
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class denumiriniveluriTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.Odbc.OdbcDataAdapter _adapter;
+        
+        private global::System.Data.Odbc.OdbcConnection _connection;
+        
+        private global::System.Data.Odbc.OdbcTransaction _transaction;
+        
+        private global::System.Data.Odbc.OdbcCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public denumiriniveluriTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected internal global::System.Data.Odbc.OdbcDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.Odbc.OdbcConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.Odbc.OdbcCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.Odbc.OdbcTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected global::System.Data.Odbc.OdbcCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.Odbc.OdbcDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "denumiriniveluri";
+            tableMapping.ColumnMappings.Add("codstrucdenumiriniv", "codstrucdenumiriniv");
+            tableMapping.ColumnMappings.Add("nrniveluri", "nrniveluri");
+            tableMapping.ColumnMappings.Add("nivela", "nivela");
+            tableMapping.ColumnMappings.Add("nivelb", "nivelb");
+            tableMapping.ColumnMappings.Add("nivelc", "nivelc");
+            tableMapping.ColumnMappings.Add("niveld", "niveld");
+            tableMapping.ColumnMappings.Add("nivele", "nivele");
+            tableMapping.ColumnMappings.Add("nivelf", "nivelf");
+            tableMapping.ColumnMappings.Add("nivelg", "nivelg");
+            tableMapping.ColumnMappings.Add("nivelh", "nivelh");
+            tableMapping.ColumnMappings.Add("niveli", "niveli");
+            tableMapping.ColumnMappings.Add("nivelj", "nivelj");
+            tableMapping.ColumnMappings.Add("nivelk", "nivelk");
+            tableMapping.ColumnMappings.Add("nivell", "nivell");
+            tableMapping.ColumnMappings.Add("nivelm", "nivelm");
+            tableMapping.ColumnMappings.Add("niveln", "niveln");
+            tableMapping.ColumnMappings.Add("nivelo", "nivelo");
+            this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.InsertCommand = new global::System.Data.Odbc.OdbcCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO ""TOP"".""public"".""denumiriniveluri"" (""codstrucdenumiriniv"", ""nrniveluri"", ""nivela"", ""nivelb"", ""nivelc"", ""niveld"", ""nivele"", ""nivelf"", ""nivelg"", ""nivelh"", ""niveli"", ""nivelj"", ""nivelk"", ""nivell"", ""nivelm"", ""niveln"", ""nivelo"") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("codstrucdenumiriniv", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(6)), ((byte)(0)), "codstrucdenumiriniv", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("nrniveluri", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(2)), ((byte)(0)), "nrniveluri", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("nivela", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nivela", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("nivelb", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nivelb", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("nivelc", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nivelc", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("niveld", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "niveld", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("nivele", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nivele", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("nivelf", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nivelf", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("nivelg", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nivelg", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("nivelh", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nivelh", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("niveli", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "niveli", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("nivelj", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nivelj", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("nivelk", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nivelk", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("nivell", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nivell", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("nivelm", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nivelm", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("niveln", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "niveln", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("nivelo", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nivelo", global::System.Data.DataRowVersion.Current, false, null));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.Odbc.OdbcConnection();
+            this._connection.ConnectionString = global::TOP.Properties.Settings.Default.TOPConStr;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.Odbc.OdbcCommand[1];
+            this._commandCollection[0] = new global::System.Data.Odbc.OdbcCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT \"codstrucdenumiriniv\", \"nrniveluri\", \"nivela\", \"nivelb\", \"nivelc\", \"niveld" +
+                "\", \"nivele\", \"nivelf\", \"nivelg\", \"nivelh\", \"niveli\", \"nivelj\", \"nivelk\", \"nivell" +
+                "\", \"nivelm\", \"niveln\", \"nivelo\" FROM \"public\".\"denumiriniveluri\"";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(dsTOP.denumiriniveluriDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual dsTOP.denumiriniveluriDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            dsTOP.denumiriniveluriDataTable dataTable = new dsTOP.denumiriniveluriDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(dsTOP.denumiriniveluriDataTable dataTable) {
+            return this.Adapter.Update(dataTable);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(dsTOP dataSet) {
+            return this.Adapter.Update(dataSet, "denumiriniveluri");
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow dataRow) {
+            return this.Adapter.Update(new global::System.Data.DataRow[] {
+                        dataRow});
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow[] dataRows) {
+            return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(
+                    decimal codstrucdenumiriniv, 
+                    decimal nrniveluri, 
+                    string nivela, 
+                    string nivelb, 
+                    string nivelc, 
+                    string niveld, 
+                    string nivele, 
+                    string nivelf, 
+                    string nivelg, 
+                    string nivelh, 
+                    string niveli, 
+                    string nivelj, 
+                    string nivelk, 
+                    string nivell, 
+                    string nivelm, 
+                    string niveln, 
+                    string nivelo) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((decimal)(codstrucdenumiriniv));
+            this.Adapter.InsertCommand.Parameters[1].Value = ((decimal)(nrniveluri));
+            if ((nivela == null)) {
+                throw new global::System.ArgumentNullException("nivela");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(nivela));
+            }
+            if ((nivelb == null)) {
+                throw new global::System.ArgumentNullException("nivelb");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(nivelb));
+            }
+            if ((nivelc == null)) {
+                throw new global::System.ArgumentNullException("nivelc");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(nivelc));
+            }
+            if ((niveld == null)) {
+                throw new global::System.ArgumentNullException("niveld");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(niveld));
+            }
+            if ((nivele == null)) {
+                throw new global::System.ArgumentNullException("nivele");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(nivele));
+            }
+            if ((nivelf == null)) {
+                throw new global::System.ArgumentNullException("nivelf");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(nivelf));
+            }
+            if ((nivelg == null)) {
+                throw new global::System.ArgumentNullException("nivelg");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[8].Value = ((string)(nivelg));
+            }
+            if ((nivelh == null)) {
+                throw new global::System.ArgumentNullException("nivelh");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(nivelh));
+            }
+            if ((niveli == null)) {
+                throw new global::System.ArgumentNullException("niveli");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[10].Value = ((string)(niveli));
+            }
+            if ((nivelj == null)) {
+                throw new global::System.ArgumentNullException("nivelj");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[11].Value = ((string)(nivelj));
+            }
+            if ((nivelk == null)) {
+                throw new global::System.ArgumentNullException("nivelk");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[12].Value = ((string)(nivelk));
+            }
+            if ((nivell == null)) {
+                throw new global::System.ArgumentNullException("nivell");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[13].Value = ((string)(nivell));
+            }
+            if ((nivelm == null)) {
+                throw new global::System.ArgumentNullException("nivelm");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[14].Value = ((string)(nivelm));
+            }
+            if ((niveln == null)) {
+                throw new global::System.ArgumentNullException("niveln");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[15].Value = ((string)(niveln));
+            }
+            if ((nivelo == null)) {
+                throw new global::System.ArgumentNullException("nivelo");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[16].Value = ((string)(nivelo));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+    }
     
     /// <summary>
     ///Represents the connection and commands used to retrieve and save data.
@@ -3587,904 +5022,6 @@ namespace TOP._00Utilitare.dsTOPTableAdapters {
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(string denumirefunctie, decimal nivelfunctie, string activarefunctie, decimal Original_codfunctie, string Original_denumirefunctie, decimal Original_nivelfunctie, string Original_activarefunctie) {
             return this.Update(Original_codfunctie, denumirefunctie, nivelfunctie, activarefunctie, Original_codfunctie, Original_denumirefunctie, Original_nivelfunctie, Original_activarefunctie);
-        }
-    }
-    
-    /// <summary>
-    ///Represents the connection and commands used to retrieve and save data.
-    ///</summary>
-    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
-    [global::System.ComponentModel.ToolboxItem(true)]
-    [global::System.ComponentModel.DataObjectAttribute(true)]
-    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
-    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class niveluriTableAdapter : global::System.ComponentModel.Component {
-        
-        private global::System.Data.Odbc.OdbcDataAdapter _adapter;
-        
-        private global::System.Data.Odbc.OdbcConnection _connection;
-        
-        private global::System.Data.Odbc.OdbcTransaction _transaction;
-        
-        private global::System.Data.Odbc.OdbcCommand[] _commandCollection;
-        
-        private bool _clearBeforeFill;
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public niveluriTableAdapter() {
-            this.ClearBeforeFill = true;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected internal global::System.Data.Odbc.OdbcDataAdapter Adapter {
-            get {
-                if ((this._adapter == null)) {
-                    this.InitAdapter();
-                }
-                return this._adapter;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        internal global::System.Data.Odbc.OdbcConnection Connection {
-            get {
-                if ((this._connection == null)) {
-                    this.InitConnection();
-                }
-                return this._connection;
-            }
-            set {
-                this._connection = value;
-                if ((this.Adapter.InsertCommand != null)) {
-                    this.Adapter.InsertCommand.Connection = value;
-                }
-                if ((this.Adapter.DeleteCommand != null)) {
-                    this.Adapter.DeleteCommand.Connection = value;
-                }
-                if ((this.Adapter.UpdateCommand != null)) {
-                    this.Adapter.UpdateCommand.Connection = value;
-                }
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    if ((this.CommandCollection[i] != null)) {
-                        ((global::System.Data.Odbc.OdbcCommand)(this.CommandCollection[i])).Connection = value;
-                    }
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        internal global::System.Data.Odbc.OdbcTransaction Transaction {
-            get {
-                return this._transaction;
-            }
-            set {
-                this._transaction = value;
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    this.CommandCollection[i].Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.DeleteCommand != null))) {
-                    this.Adapter.DeleteCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.InsertCommand != null))) {
-                    this.Adapter.InsertCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.UpdateCommand != null))) {
-                    this.Adapter.UpdateCommand.Transaction = this._transaction;
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected global::System.Data.Odbc.OdbcCommand[] CommandCollection {
-            get {
-                if ((this._commandCollection == null)) {
-                    this.InitCommandCollection();
-                }
-                return this._commandCollection;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public bool ClearBeforeFill {
-            get {
-                return this._clearBeforeFill;
-            }
-            set {
-                this._clearBeforeFill = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private void InitAdapter() {
-            this._adapter = new global::System.Data.Odbc.OdbcDataAdapter();
-            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
-            tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "niveluri";
-            tableMapping.ColumnMappings.Add("codstructuranivele", "codstructuranivele");
-            tableMapping.ColumnMappings.Add("nrnivele", "nrnivele");
-            tableMapping.ColumnMappings.Add("nivela", "nivela");
-            tableMapping.ColumnMappings.Add("nivelb", "nivelb");
-            tableMapping.ColumnMappings.Add("nivelc", "nivelc");
-            tableMapping.ColumnMappings.Add("niveld", "niveld");
-            tableMapping.ColumnMappings.Add("nivele", "nivele");
-            tableMapping.ColumnMappings.Add("nivelf", "nivelf");
-            tableMapping.ColumnMappings.Add("nivelg", "nivelg");
-            tableMapping.ColumnMappings.Add("nivelh", "nivelh");
-            tableMapping.ColumnMappings.Add("niveli", "niveli");
-            tableMapping.ColumnMappings.Add("nivelj", "nivelj");
-            tableMapping.ColumnMappings.Add("nivelk", "nivelk");
-            tableMapping.ColumnMappings.Add("nivell", "nivell");
-            tableMapping.ColumnMappings.Add("nivelm", "nivelm");
-            tableMapping.ColumnMappings.Add("niveln", "niveln");
-            tableMapping.ColumnMappings.Add("nivelo", "nivelo");
-            this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.DeleteCommand = new global::System.Data.Odbc.OdbcCommand();
-            this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM ""TOP"".""public"".""niveluri"" WHERE (((? = 1 AND ""codstructuranivele"" IS NULL) OR (""codstructuranivele"" = ?)) AND (""nrnivele"" = ?) AND ((? = 1 AND ""nivela"" IS NULL) OR (""nivela"" = ?)) AND ((? = 1 AND ""nivelb"" IS NULL) OR (""nivelb"" = ?)) AND ((? = 1 AND ""nivelc"" IS NULL) OR (""nivelc"" = ?)) AND ((? = 1 AND ""niveld"" IS NULL) OR (""niveld"" = ?)) AND ((? = 1 AND ""nivele"" IS NULL) OR (""nivele"" = ?)) AND ((? = 1 AND ""nivelf"" IS NULL) OR (""nivelf"" = ?)) AND ((? = 1 AND ""nivelg"" IS NULL) OR (""nivelg"" = ?)) AND ((? = 1 AND ""nivelh"" IS NULL) OR (""nivelh"" = ?)) AND ((? = 1 AND ""niveli"" IS NULL) OR (""niveli"" = ?)) AND ((? = 1 AND ""nivelj"" IS NULL) OR (""nivelj"" = ?)) AND ((? = 1 AND ""nivelk"" IS NULL) OR (""nivelk"" = ?)) AND ((? = 1 AND ""nivell"" IS NULL) OR (""nivell"" = ?)) AND ((? = 1 AND ""nivelm"" IS NULL) OR (""nivelm"" = ?)) AND ((? = 1 AND ""niveln"" IS NULL) OR (""niveln"" = ?)) AND ((? = 1 AND ""nivelo"" IS NULL) OR (""nivelo"" = ?)))";
-            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_codstructuranivele", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "codstructuranivele", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_codstructuranivele", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(6)), ((byte)(0)), "codstructuranivele", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_nrnivele", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(2)), ((byte)(0)), "nrnivele", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_nivela", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nivela", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_nivela", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nivela", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_nivelb", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nivelb", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_nivelb", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nivelb", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_nivelc", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nivelc", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_nivelc", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nivelc", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_niveld", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "niveld", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_niveld", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "niveld", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_nivele", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nivele", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_nivele", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nivele", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_nivelf", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nivelf", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_nivelf", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nivelf", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_nivelg", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nivelg", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_nivelg", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nivelg", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_nivelh", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nivelh", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_nivelh", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nivelh", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_niveli", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "niveli", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_niveli", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "niveli", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_nivelj", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nivelj", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_nivelj", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nivelj", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_nivelk", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nivelk", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_nivelk", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nivelk", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_nivell", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nivell", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_nivell", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nivell", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_nivelm", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nivelm", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_nivelm", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nivelm", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_niveln", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "niveln", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_niveln", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "niveln", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_nivelo", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nivelo", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_nivelo", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nivelo", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.InsertCommand = new global::System.Data.Odbc.OdbcCommand();
-            this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO ""TOP"".""public"".""niveluri"" (""codstructuranivele"", ""nrnivele"", ""nivela"", ""nivelb"", ""nivelc"", ""niveld"", ""nivele"", ""nivelf"", ""nivelg"", ""nivelh"", ""niveli"", ""nivelj"", ""nivelk"", ""nivell"", ""nivelm"", ""niveln"", ""nivelo"") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("codstructuranivele", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(6)), ((byte)(0)), "codstructuranivele", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("nrnivele", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(2)), ((byte)(0)), "nrnivele", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("nivela", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nivela", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("nivelb", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nivelb", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("nivelc", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nivelc", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("niveld", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "niveld", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("nivele", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nivele", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("nivelf", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nivelf", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("nivelg", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nivelg", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("nivelh", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nivelh", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("niveli", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "niveli", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("nivelj", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nivelj", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("nivelk", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nivelk", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("nivell", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nivell", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("nivelm", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nivelm", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("niveln", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "niveln", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("nivelo", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nivelo", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand = new global::System.Data.Odbc.OdbcCommand();
-            this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE ""TOP"".""public"".""niveluri"" SET ""codstructuranivele"" = ?, ""nrnivele"" = ?, ""nivela"" = ?, ""nivelb"" = ?, ""nivelc"" = ?, ""niveld"" = ?, ""nivele"" = ?, ""nivelf"" = ?, ""nivelg"" = ?, ""nivelh"" = ?, ""niveli"" = ?, ""nivelj"" = ?, ""nivelk"" = ?, ""nivell"" = ?, ""nivelm"" = ?, ""niveln"" = ?, ""nivelo"" = ? WHERE (((? = 1 AND ""codstructuranivele"" IS NULL) OR (""codstructuranivele"" = ?)) AND (""nrnivele"" = ?) AND ((? = 1 AND ""nivela"" IS NULL) OR (""nivela"" = ?)) AND ((? = 1 AND ""nivelb"" IS NULL) OR (""nivelb"" = ?)) AND ((? = 1 AND ""nivelc"" IS NULL) OR (""nivelc"" = ?)) AND ((? = 1 AND ""niveld"" IS NULL) OR (""niveld"" = ?)) AND ((? = 1 AND ""nivele"" IS NULL) OR (""nivele"" = ?)) AND ((? = 1 AND ""nivelf"" IS NULL) OR (""nivelf"" = ?)) AND ((? = 1 AND ""nivelg"" IS NULL) OR (""nivelg"" = ?)) AND ((? = 1 AND ""nivelh"" IS NULL) OR (""nivelh"" = ?)) AND ((? = 1 AND ""niveli"" IS NULL) OR (""niveli"" = ?)) AND ((? = 1 AND ""nivelj"" IS NULL) OR (""nivelj"" = ?)) AND ((? = 1 AND ""nivelk"" IS NULL) OR (""nivelk"" = ?)) AND ((? = 1 AND ""nivell"" IS NULL) OR (""nivell"" = ?)) AND ((? = 1 AND ""nivelm"" IS NULL) OR (""nivelm"" = ?)) AND ((? = 1 AND ""niveln"" IS NULL) OR (""niveln"" = ?)) AND ((? = 1 AND ""nivelo"" IS NULL) OR (""nivelo"" = ?)))";
-            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("codstructuranivele", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(6)), ((byte)(0)), "codstructuranivele", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("nrnivele", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(2)), ((byte)(0)), "nrnivele", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("nivela", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nivela", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("nivelb", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nivelb", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("nivelc", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nivelc", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("niveld", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "niveld", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("nivele", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nivele", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("nivelf", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nivelf", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("nivelg", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nivelg", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("nivelh", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nivelh", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("niveli", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "niveli", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("nivelj", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nivelj", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("nivelk", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nivelk", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("nivell", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nivell", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("nivelm", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nivelm", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("niveln", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "niveln", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("nivelo", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nivelo", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_codstructuranivele", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "codstructuranivele", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_codstructuranivele", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(6)), ((byte)(0)), "codstructuranivele", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_nrnivele", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(2)), ((byte)(0)), "nrnivele", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_nivela", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nivela", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_nivela", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nivela", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_nivelb", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nivelb", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_nivelb", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nivelb", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_nivelc", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nivelc", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_nivelc", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nivelc", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_niveld", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "niveld", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_niveld", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "niveld", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_nivele", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nivele", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_nivele", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nivele", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_nivelf", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nivelf", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_nivelf", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nivelf", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_nivelg", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nivelg", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_nivelg", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nivelg", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_nivelh", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nivelh", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_nivelh", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nivelh", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_niveli", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "niveli", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_niveli", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "niveli", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_nivelj", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nivelj", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_nivelj", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nivelj", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_nivelk", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nivelk", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_nivelk", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nivelk", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_nivell", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nivell", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_nivell", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nivell", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_nivelm", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nivelm", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_nivelm", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nivelm", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_niveln", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "niveln", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_niveln", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "niveln", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_nivelo", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nivelo", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_nivelo", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nivelo", global::System.Data.DataRowVersion.Original, false, null));
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private void InitConnection() {
-            this._connection = new global::System.Data.Odbc.OdbcConnection();
-            this._connection.ConnectionString = global::TOP.Properties.Settings.Default.TOPConStr;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.Odbc.OdbcCommand[1];
-            this._commandCollection[0] = new global::System.Data.Odbc.OdbcCommand();
-            this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT \"codstructuranivele\", \"nrnivele\", \"nivela\", \"nivelb\", \"nivelc\", \"niveld\", " +
-                "\"nivele\", \"nivelf\", \"nivelg\", \"nivelh\", \"niveli\", \"nivelj\", \"nivelk\", \"nivell\", " +
-                "\"nivelm\", \"niveln\", \"nivelo\" FROM \"public\".\"niveluri\"";
-            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(dsTOP.niveluriDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual dsTOP.niveluriDataTable GetData() {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            dsTOP.niveluriDataTable dataTable = new dsTOP.niveluriDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(dsTOP.niveluriDataTable dataTable) {
-            return this.Adapter.Update(dataTable);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(dsTOP dataSet) {
-            return this.Adapter.Update(dataSet, "niveluri");
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow dataRow) {
-            return this.Adapter.Update(new global::System.Data.DataRow[] {
-                        dataRow});
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow[] dataRows) {
-            return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(
-                    decimal Original_codstructuranivele, 
-                    decimal Original_nrnivele, 
-                    string Original_nivela, 
-                    string Original_nivelb, 
-                    string Original_nivelc, 
-                    string Original_niveld, 
-                    string Original_nivele, 
-                    string Original_nivelf, 
-                    string Original_nivelg, 
-                    string Original_nivelh, 
-                    string Original_niveli, 
-                    string Original_nivelj, 
-                    string Original_nivelk, 
-                    string Original_nivell, 
-                    string Original_nivelm, 
-                    string Original_niveln, 
-                    string Original_nivelo) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((object)(0));
-            this.Adapter.DeleteCommand.Parameters[1].Value = ((decimal)(Original_codstructuranivele));
-            this.Adapter.DeleteCommand.Parameters[2].Value = ((decimal)(Original_nrnivele));
-            if ((Original_nivela == null)) {
-                throw new global::System.ArgumentNullException("Original_nivela");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_nivela));
-            }
-            if ((Original_nivelb == null)) {
-                throw new global::System.ArgumentNullException("Original_nivelb");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_nivelb));
-            }
-            if ((Original_nivelc == null)) {
-                throw new global::System.ArgumentNullException("Original_nivelc");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_nivelc));
-            }
-            if ((Original_niveld == null)) {
-                throw new global::System.ArgumentNullException("Original_niveld");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((string)(Original_niveld));
-            }
-            if ((Original_nivele == null)) {
-                throw new global::System.ArgumentNullException("Original_nivele");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[12].Value = ((string)(Original_nivele));
-            }
-            if ((Original_nivelf == null)) {
-                throw new global::System.ArgumentNullException("Original_nivelf");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[14].Value = ((string)(Original_nivelf));
-            }
-            if ((Original_nivelg == null)) {
-                throw new global::System.ArgumentNullException("Original_nivelg");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[16].Value = ((string)(Original_nivelg));
-            }
-            if ((Original_nivelh == null)) {
-                throw new global::System.ArgumentNullException("Original_nivelh");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[18].Value = ((string)(Original_nivelh));
-            }
-            if ((Original_niveli == null)) {
-                throw new global::System.ArgumentNullException("Original_niveli");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[19].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[20].Value = ((string)(Original_niveli));
-            }
-            if ((Original_nivelj == null)) {
-                throw new global::System.ArgumentNullException("Original_nivelj");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[21].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[22].Value = ((string)(Original_nivelj));
-            }
-            if ((Original_nivelk == null)) {
-                throw new global::System.ArgumentNullException("Original_nivelk");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[23].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[24].Value = ((string)(Original_nivelk));
-            }
-            if ((Original_nivell == null)) {
-                throw new global::System.ArgumentNullException("Original_nivell");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[25].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[26].Value = ((string)(Original_nivell));
-            }
-            if ((Original_nivelm == null)) {
-                throw new global::System.ArgumentNullException("Original_nivelm");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[27].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[28].Value = ((string)(Original_nivelm));
-            }
-            if ((Original_niveln == null)) {
-                throw new global::System.ArgumentNullException("Original_niveln");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[29].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[30].Value = ((string)(Original_niveln));
-            }
-            if ((Original_nivelo == null)) {
-                throw new global::System.ArgumentNullException("Original_nivelo");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[31].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[32].Value = ((string)(Original_nivelo));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
-            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.DeleteCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.DeleteCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(
-                    decimal codstructuranivele, 
-                    decimal nrnivele, 
-                    string nivela, 
-                    string nivelb, 
-                    string nivelc, 
-                    string niveld, 
-                    string nivele, 
-                    string nivelf, 
-                    string nivelg, 
-                    string nivelh, 
-                    string niveli, 
-                    string nivelj, 
-                    string nivelk, 
-                    string nivell, 
-                    string nivelm, 
-                    string niveln, 
-                    string nivelo) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((decimal)(codstructuranivele));
-            this.Adapter.InsertCommand.Parameters[1].Value = ((decimal)(nrnivele));
-            if ((nivela == null)) {
-                throw new global::System.ArgumentNullException("nivela");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(nivela));
-            }
-            if ((nivelb == null)) {
-                throw new global::System.ArgumentNullException("nivelb");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(nivelb));
-            }
-            if ((nivelc == null)) {
-                throw new global::System.ArgumentNullException("nivelc");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(nivelc));
-            }
-            if ((niveld == null)) {
-                throw new global::System.ArgumentNullException("niveld");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(niveld));
-            }
-            if ((nivele == null)) {
-                throw new global::System.ArgumentNullException("nivele");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(nivele));
-            }
-            if ((nivelf == null)) {
-                throw new global::System.ArgumentNullException("nivelf");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(nivelf));
-            }
-            if ((nivelg == null)) {
-                throw new global::System.ArgumentNullException("nivelg");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[8].Value = ((string)(nivelg));
-            }
-            if ((nivelh == null)) {
-                throw new global::System.ArgumentNullException("nivelh");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(nivelh));
-            }
-            if ((niveli == null)) {
-                throw new global::System.ArgumentNullException("niveli");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[10].Value = ((string)(niveli));
-            }
-            if ((nivelj == null)) {
-                throw new global::System.ArgumentNullException("nivelj");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[11].Value = ((string)(nivelj));
-            }
-            if ((nivelk == null)) {
-                throw new global::System.ArgumentNullException("nivelk");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[12].Value = ((string)(nivelk));
-            }
-            if ((nivell == null)) {
-                throw new global::System.ArgumentNullException("nivell");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[13].Value = ((string)(nivell));
-            }
-            if ((nivelm == null)) {
-                throw new global::System.ArgumentNullException("nivelm");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[14].Value = ((string)(nivelm));
-            }
-            if ((niveln == null)) {
-                throw new global::System.ArgumentNullException("niveln");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[15].Value = ((string)(niveln));
-            }
-            if ((nivelo == null)) {
-                throw new global::System.ArgumentNullException("nivelo");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[16].Value = ((string)(nivelo));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(
-                    decimal codstructuranivele, 
-                    decimal nrnivele, 
-                    string nivela, 
-                    string nivelb, 
-                    string nivelc, 
-                    string niveld, 
-                    string nivele, 
-                    string nivelf, 
-                    string nivelg, 
-                    string nivelh, 
-                    string niveli, 
-                    string nivelj, 
-                    string nivelk, 
-                    string nivell, 
-                    string nivelm, 
-                    string niveln, 
-                    string nivelo, 
-                    decimal Original_codstructuranivele, 
-                    decimal Original_nrnivele, 
-                    string Original_nivela, 
-                    string Original_nivelb, 
-                    string Original_nivelc, 
-                    string Original_niveld, 
-                    string Original_nivele, 
-                    string Original_nivelf, 
-                    string Original_nivelg, 
-                    string Original_nivelh, 
-                    string Original_niveli, 
-                    string Original_nivelj, 
-                    string Original_nivelk, 
-                    string Original_nivell, 
-                    string Original_nivelm, 
-                    string Original_niveln, 
-                    string Original_nivelo) {
-            this.Adapter.UpdateCommand.Parameters[0].Value = ((decimal)(codstructuranivele));
-            this.Adapter.UpdateCommand.Parameters[1].Value = ((decimal)(nrnivele));
-            if ((nivela == null)) {
-                throw new global::System.ArgumentNullException("nivela");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(nivela));
-            }
-            if ((nivelb == null)) {
-                throw new global::System.ArgumentNullException("nivelb");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(nivelb));
-            }
-            if ((nivelc == null)) {
-                throw new global::System.ArgumentNullException("nivelc");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(nivelc));
-            }
-            if ((niveld == null)) {
-                throw new global::System.ArgumentNullException("niveld");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(niveld));
-            }
-            if ((nivele == null)) {
-                throw new global::System.ArgumentNullException("nivele");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(nivele));
-            }
-            if ((nivelf == null)) {
-                throw new global::System.ArgumentNullException("nivelf");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(nivelf));
-            }
-            if ((nivelg == null)) {
-                throw new global::System.ArgumentNullException("nivelg");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(nivelg));
-            }
-            if ((nivelh == null)) {
-                throw new global::System.ArgumentNullException("nivelh");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(nivelh));
-            }
-            if ((niveli == null)) {
-                throw new global::System.ArgumentNullException("niveli");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(niveli));
-            }
-            if ((nivelj == null)) {
-                throw new global::System.ArgumentNullException("nivelj");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(nivelj));
-            }
-            if ((nivelk == null)) {
-                throw new global::System.ArgumentNullException("nivelk");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(nivelk));
-            }
-            if ((nivell == null)) {
-                throw new global::System.ArgumentNullException("nivell");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(nivell));
-            }
-            if ((nivelm == null)) {
-                throw new global::System.ArgumentNullException("nivelm");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(nivelm));
-            }
-            if ((niveln == null)) {
-                throw new global::System.ArgumentNullException("niveln");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(niveln));
-            }
-            if ((nivelo == null)) {
-                throw new global::System.ArgumentNullException("nivelo");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(nivelo));
-            }
-            this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(0));
-            this.Adapter.UpdateCommand.Parameters[18].Value = ((decimal)(Original_codstructuranivele));
-            this.Adapter.UpdateCommand.Parameters[19].Value = ((decimal)(Original_nrnivele));
-            if ((Original_nivela == null)) {
-                throw new global::System.ArgumentNullException("Original_nivela");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((string)(Original_nivela));
-            }
-            if ((Original_nivelb == null)) {
-                throw new global::System.ArgumentNullException("Original_nivelb");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((string)(Original_nivelb));
-            }
-            if ((Original_nivelc == null)) {
-                throw new global::System.ArgumentNullException("Original_nivelc");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((string)(Original_nivelc));
-            }
-            if ((Original_niveld == null)) {
-                throw new global::System.ArgumentNullException("Original_niveld");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[27].Value = ((string)(Original_niveld));
-            }
-            if ((Original_nivele == null)) {
-                throw new global::System.ArgumentNullException("Original_nivele");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[28].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[29].Value = ((string)(Original_nivele));
-            }
-            if ((Original_nivelf == null)) {
-                throw new global::System.ArgumentNullException("Original_nivelf");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[30].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[31].Value = ((string)(Original_nivelf));
-            }
-            if ((Original_nivelg == null)) {
-                throw new global::System.ArgumentNullException("Original_nivelg");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[32].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[33].Value = ((string)(Original_nivelg));
-            }
-            if ((Original_nivelh == null)) {
-                throw new global::System.ArgumentNullException("Original_nivelh");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[34].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[35].Value = ((string)(Original_nivelh));
-            }
-            if ((Original_niveli == null)) {
-                throw new global::System.ArgumentNullException("Original_niveli");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[36].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[37].Value = ((string)(Original_niveli));
-            }
-            if ((Original_nivelj == null)) {
-                throw new global::System.ArgumentNullException("Original_nivelj");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[38].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[39].Value = ((string)(Original_nivelj));
-            }
-            if ((Original_nivelk == null)) {
-                throw new global::System.ArgumentNullException("Original_nivelk");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[40].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[41].Value = ((string)(Original_nivelk));
-            }
-            if ((Original_nivell == null)) {
-                throw new global::System.ArgumentNullException("Original_nivell");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[42].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[43].Value = ((string)(Original_nivell));
-            }
-            if ((Original_nivelm == null)) {
-                throw new global::System.ArgumentNullException("Original_nivelm");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[44].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[45].Value = ((string)(Original_nivelm));
-            }
-            if ((Original_niveln == null)) {
-                throw new global::System.ArgumentNullException("Original_niveln");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[46].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[47].Value = ((string)(Original_niveln));
-            }
-            if ((Original_nivelo == null)) {
-                throw new global::System.ArgumentNullException("Original_nivelo");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[48].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[49].Value = ((string)(Original_nivelo));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
-            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.UpdateCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.UpdateCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(
-                    decimal codstructuranivele, 
-                    string nivela, 
-                    string nivelb, 
-                    string nivelc, 
-                    string niveld, 
-                    string nivele, 
-                    string nivelf, 
-                    string nivelg, 
-                    string nivelh, 
-                    string niveli, 
-                    string nivelj, 
-                    string nivelk, 
-                    string nivell, 
-                    string nivelm, 
-                    string niveln, 
-                    string nivelo, 
-                    decimal Original_codstructuranivele, 
-                    decimal Original_nrnivele, 
-                    string Original_nivela, 
-                    string Original_nivelb, 
-                    string Original_nivelc, 
-                    string Original_niveld, 
-                    string Original_nivele, 
-                    string Original_nivelf, 
-                    string Original_nivelg, 
-                    string Original_nivelh, 
-                    string Original_niveli, 
-                    string Original_nivelj, 
-                    string Original_nivelk, 
-                    string Original_nivell, 
-                    string Original_nivelm, 
-                    string Original_niveln, 
-                    string Original_nivelo) {
-            return this.Update(codstructuranivele, Original_nrnivele, nivela, nivelb, nivelc, niveld, nivele, nivelf, nivelg, nivelh, niveli, nivelj, nivelk, nivell, nivelm, niveln, nivelo, Original_codstructuranivele, Original_nrnivele, Original_nivela, Original_nivelb, Original_nivelc, Original_niveld, Original_nivele, Original_nivelf, Original_nivelg, Original_nivelh, Original_niveli, Original_nivelj, Original_nivelk, Original_nivell, Original_nivelm, Original_niveln, Original_nivelo);
         }
     }
     
@@ -5598,6 +6135,371 @@ namespace TOP._00Utilitare.dsTOPTableAdapters {
     }
     
     /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class valoriniveluriTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.Odbc.OdbcDataAdapter _adapter;
+        
+        private global::System.Data.Odbc.OdbcConnection _connection;
+        
+        private global::System.Data.Odbc.OdbcTransaction _transaction;
+        
+        private global::System.Data.Odbc.OdbcCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public valoriniveluriTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected internal global::System.Data.Odbc.OdbcDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.Odbc.OdbcConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.Odbc.OdbcCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.Odbc.OdbcTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected global::System.Data.Odbc.OdbcCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.Odbc.OdbcDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "valoriniveluri";
+            tableMapping.ColumnMappings.Add("codstrucvaloriniv", "codstrucvaloriniv");
+            tableMapping.ColumnMappings.Add("nrniveluri", "nrniveluri");
+            tableMapping.ColumnMappings.Add("nivela", "nivela");
+            tableMapping.ColumnMappings.Add("nivelb", "nivelb");
+            tableMapping.ColumnMappings.Add("nivelc", "nivelc");
+            tableMapping.ColumnMappings.Add("niveld", "niveld");
+            tableMapping.ColumnMappings.Add("nivele", "nivele");
+            tableMapping.ColumnMappings.Add("nivelf", "nivelf");
+            tableMapping.ColumnMappings.Add("nivelg", "nivelg");
+            tableMapping.ColumnMappings.Add("nivelh", "nivelh");
+            tableMapping.ColumnMappings.Add("niveli", "niveli");
+            tableMapping.ColumnMappings.Add("nivelj", "nivelj");
+            tableMapping.ColumnMappings.Add("nivelk", "nivelk");
+            tableMapping.ColumnMappings.Add("nivell", "nivell");
+            tableMapping.ColumnMappings.Add("nivelm", "nivelm");
+            tableMapping.ColumnMappings.Add("niveln", "niveln");
+            tableMapping.ColumnMappings.Add("nivelo", "nivelo");
+            this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.InsertCommand = new global::System.Data.Odbc.OdbcCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO ""TOP"".""public"".""valoriniveluri"" (""codstrucvaloriniv"", ""nrniveluri"", ""nivela"", ""nivelb"", ""nivelc"", ""niveld"", ""nivele"", ""nivelf"", ""nivelg"", ""nivelh"", ""niveli"", ""nivelj"", ""nivelk"", ""nivell"", ""nivelm"", ""niveln"", ""nivelo"") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("codstrucvaloriniv", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(6)), ((byte)(0)), "codstrucvaloriniv", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("nrniveluri", global::System.Data.Odbc.OdbcType.Numeric, 0, global::System.Data.ParameterDirection.Input, ((byte)(2)), ((byte)(0)), "nrniveluri", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("nivela", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nivela", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("nivelb", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nivelb", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("nivelc", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nivelc", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("niveld", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "niveld", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("nivele", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nivele", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("nivelf", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nivelf", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("nivelg", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nivelg", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("nivelh", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nivelh", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("niveli", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "niveli", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("nivelj", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nivelj", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("nivelk", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nivelk", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("nivell", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nivell", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("nivelm", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nivelm", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("niveln", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "niveln", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("nivelo", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nivelo", global::System.Data.DataRowVersion.Current, false, null));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.Odbc.OdbcConnection();
+            this._connection.ConnectionString = global::TOP.Properties.Settings.Default.TOPConStr;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.Odbc.OdbcCommand[1];
+            this._commandCollection[0] = new global::System.Data.Odbc.OdbcCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT \"codstrucvaloriniv\", \"nrniveluri\", \"nivela\", \"nivelb\", \"nivelc\", \"niveld\"," +
+                " \"nivele\", \"nivelf\", \"nivelg\", \"nivelh\", \"niveli\", \"nivelj\", \"nivelk\", \"nivell\"," +
+                " \"nivelm\", \"niveln\", \"nivelo\" FROM \"public\".\"valoriniveluri\"";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(dsTOP.valoriniveluriDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual dsTOP.valoriniveluriDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            dsTOP.valoriniveluriDataTable dataTable = new dsTOP.valoriniveluriDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(dsTOP.valoriniveluriDataTable dataTable) {
+            return this.Adapter.Update(dataTable);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(dsTOP dataSet) {
+            return this.Adapter.Update(dataSet, "valoriniveluri");
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow dataRow) {
+            return this.Adapter.Update(new global::System.Data.DataRow[] {
+                        dataRow});
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow[] dataRows) {
+            return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(
+                    decimal codstrucvaloriniv, 
+                    decimal nrniveluri, 
+                    string nivela, 
+                    string nivelb, 
+                    string nivelc, 
+                    string niveld, 
+                    string nivele, 
+                    string nivelf, 
+                    string nivelg, 
+                    string nivelh, 
+                    string niveli, 
+                    string nivelj, 
+                    string nivelk, 
+                    string nivell, 
+                    string nivelm, 
+                    string niveln, 
+                    string nivelo) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((decimal)(codstrucvaloriniv));
+            this.Adapter.InsertCommand.Parameters[1].Value = ((decimal)(nrniveluri));
+            if ((nivela == null)) {
+                throw new global::System.ArgumentNullException("nivela");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(nivela));
+            }
+            if ((nivelb == null)) {
+                throw new global::System.ArgumentNullException("nivelb");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(nivelb));
+            }
+            if ((nivelc == null)) {
+                throw new global::System.ArgumentNullException("nivelc");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(nivelc));
+            }
+            if ((niveld == null)) {
+                throw new global::System.ArgumentNullException("niveld");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(niveld));
+            }
+            if ((nivele == null)) {
+                throw new global::System.ArgumentNullException("nivele");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(nivele));
+            }
+            if ((nivelf == null)) {
+                throw new global::System.ArgumentNullException("nivelf");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(nivelf));
+            }
+            if ((nivelg == null)) {
+                throw new global::System.ArgumentNullException("nivelg");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[8].Value = ((string)(nivelg));
+            }
+            if ((nivelh == null)) {
+                throw new global::System.ArgumentNullException("nivelh");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(nivelh));
+            }
+            if ((niveli == null)) {
+                throw new global::System.ArgumentNullException("niveli");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[10].Value = ((string)(niveli));
+            }
+            if ((nivelj == null)) {
+                throw new global::System.ArgumentNullException("nivelj");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[11].Value = ((string)(nivelj));
+            }
+            if ((nivelk == null)) {
+                throw new global::System.ArgumentNullException("nivelk");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[12].Value = ((string)(nivelk));
+            }
+            if ((nivell == null)) {
+                throw new global::System.ArgumentNullException("nivell");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[13].Value = ((string)(nivell));
+            }
+            if ((nivelm == null)) {
+                throw new global::System.ArgumentNullException("nivelm");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[14].Value = ((string)(nivelm));
+            }
+            if ((niveln == null)) {
+                throw new global::System.ArgumentNullException("niveln");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[15].Value = ((string)(niveln));
+            }
+            if ((nivelo == null)) {
+                throw new global::System.ArgumentNullException("nivelo");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[16].Value = ((string)(nivelo));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+    }
+    
+    /// <summary>
     ///TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
     ///</summary>
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -5609,15 +6511,17 @@ namespace TOP._00Utilitare.dsTOPTableAdapters {
         
         private UpdateOrderOption _updateOrder;
         
-        private functiiTableAdapter _functiiTableAdapter;
+        private denumiriniveluriTableAdapter _denumiriniveluriTableAdapter;
         
-        private niveluriTableAdapter _niveluriTableAdapter;
+        private functiiTableAdapter _functiiTableAdapter;
         
         private produsesoftwareTableAdapter _produsesoftwareTableAdapter;
         
         private structuriTableAdapter _structuriTableAdapter;
         
         private utilizatoriTableAdapter _utilizatoriTableAdapter;
+        
+        private valoriniveluriTableAdapter _valoriniveluriTableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
         
@@ -5639,12 +6543,12 @@ namespace TOP._00Utilitare.dsTOPTableAdapters {
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public functiiTableAdapter functiiTableAdapter {
+        public denumiriniveluriTableAdapter denumiriniveluriTableAdapter {
             get {
-                return this._functiiTableAdapter;
+                return this._denumiriniveluriTableAdapter;
             }
             set {
-                this._functiiTableAdapter = value;
+                this._denumiriniveluriTableAdapter = value;
             }
         }
         
@@ -5653,12 +6557,12 @@ namespace TOP._00Utilitare.dsTOPTableAdapters {
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public niveluriTableAdapter niveluriTableAdapter {
+        public functiiTableAdapter functiiTableAdapter {
             get {
-                return this._niveluriTableAdapter;
+                return this._functiiTableAdapter;
             }
             set {
-                this._niveluriTableAdapter = value;
+                this._functiiTableAdapter = value;
             }
         }
         
@@ -5706,6 +6610,20 @@ namespace TOP._00Utilitare.dsTOPTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
+            "a", "System.Drawing.Design.UITypeEditor")]
+        public valoriniveluriTableAdapter valoriniveluriTableAdapter {
+            get {
+                return this._valoriniveluriTableAdapter;
+            }
+            set {
+                this._valoriniveluriTableAdapter = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public bool BackupDataSetBeforeUpdate {
             get {
                 return this._backupDataSetBeforeUpdate;
@@ -5723,13 +6641,13 @@ namespace TOP._00Utilitare.dsTOPTableAdapters {
                 if ((this._connection != null)) {
                     return this._connection;
                 }
+                if (((this._denumiriniveluriTableAdapter != null) 
+                            && (this._denumiriniveluriTableAdapter.Connection != null))) {
+                    return this._denumiriniveluriTableAdapter.Connection;
+                }
                 if (((this._functiiTableAdapter != null) 
                             && (this._functiiTableAdapter.Connection != null))) {
                     return this._functiiTableAdapter.Connection;
-                }
-                if (((this._niveluriTableAdapter != null) 
-                            && (this._niveluriTableAdapter.Connection != null))) {
-                    return this._niveluriTableAdapter.Connection;
                 }
                 if (((this._produsesoftwareTableAdapter != null) 
                             && (this._produsesoftwareTableAdapter.Connection != null))) {
@@ -5742,6 +6660,10 @@ namespace TOP._00Utilitare.dsTOPTableAdapters {
                 if (((this._utilizatoriTableAdapter != null) 
                             && (this._utilizatoriTableAdapter.Connection != null))) {
                     return this._utilizatoriTableAdapter.Connection;
+                }
+                if (((this._valoriniveluriTableAdapter != null) 
+                            && (this._valoriniveluriTableAdapter.Connection != null))) {
+                    return this._valoriniveluriTableAdapter.Connection;
                 }
                 return null;
             }
@@ -5756,10 +6678,10 @@ namespace TOP._00Utilitare.dsTOPTableAdapters {
         public int TableAdapterInstanceCount {
             get {
                 int count = 0;
-                if ((this._functiiTableAdapter != null)) {
+                if ((this._denumiriniveluriTableAdapter != null)) {
                     count = (count + 1);
                 }
-                if ((this._niveluriTableAdapter != null)) {
+                if ((this._functiiTableAdapter != null)) {
                     count = (count + 1);
                 }
                 if ((this._produsesoftwareTableAdapter != null)) {
@@ -5769,6 +6691,9 @@ namespace TOP._00Utilitare.dsTOPTableAdapters {
                     count = (count + 1);
                 }
                 if ((this._utilizatoriTableAdapter != null)) {
+                    count = (count + 1);
+                }
+                if ((this._valoriniveluriTableAdapter != null)) {
                     count = (count + 1);
                 }
                 return count;
@@ -5782,21 +6707,21 @@ namespace TOP._00Utilitare.dsTOPTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateUpdatedRows(dsTOP dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
+            if ((this._denumiriniveluriTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.denumiriniveluri.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._denumiriniveluriTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             if ((this._functiiTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.functii.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._functiiTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._niveluriTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.niveluri.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._niveluriTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -5827,6 +6752,15 @@ namespace TOP._00Utilitare.dsTOPTableAdapters {
                     allChangedRows.AddRange(updatedRows);
                 }
             }
+            if ((this._valoriniveluriTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.valoriniveluri.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._valoriniveluriTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             return result;
         }
         
@@ -5837,19 +6771,19 @@ namespace TOP._00Utilitare.dsTOPTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateInsertedRows(dsTOP dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
+            if ((this._denumiriniveluriTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.denumiriniveluri.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._denumiriniveluriTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             if ((this._functiiTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.functii.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._functiiTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._niveluriTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.niveluri.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._niveluriTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -5877,6 +6811,14 @@ namespace TOP._00Utilitare.dsTOPTableAdapters {
                     allAddedRows.AddRange(addedRows);
                 }
             }
+            if ((this._valoriniveluriTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.valoriniveluri.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._valoriniveluriTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             return result;
         }
         
@@ -5887,6 +6829,14 @@ namespace TOP._00Utilitare.dsTOPTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateDeletedRows(dsTOP dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
+            if ((this._valoriniveluriTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.valoriniveluri.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._valoriniveluriTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
             if ((this._utilizatoriTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.utilizatori.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -5911,19 +6861,19 @@ namespace TOP._00Utilitare.dsTOPTableAdapters {
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._niveluriTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.niveluri.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._niveluriTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._functiiTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.functii.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._functiiTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._denumiriniveluriTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.denumiriniveluri.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._denumiriniveluriTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -5966,13 +6916,13 @@ namespace TOP._00Utilitare.dsTOPTableAdapters {
             if ((dataSet.HasChanges() == false)) {
                 return 0;
             }
-            if (((this._functiiTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._functiiTableAdapter.Connection) == false))) {
+            if (((this._denumiriniveluriTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._denumiriniveluriTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
-            if (((this._niveluriTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._niveluriTableAdapter.Connection) == false))) {
+            if (((this._functiiTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._functiiTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
@@ -5988,6 +6938,11 @@ namespace TOP._00Utilitare.dsTOPTableAdapters {
             }
             if (((this._utilizatoriTableAdapter != null) 
                         && (this.MatchTableAdapterConnection(this._utilizatoriTableAdapter.Connection) == false))) {
+                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
+                        "tring.");
+            }
+            if (((this._valoriniveluriTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._valoriniveluriTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
@@ -6023,6 +6978,15 @@ namespace TOP._00Utilitare.dsTOPTableAdapters {
             try {
                 // ---- Prepare for update -----------
                 //
+                if ((this._denumiriniveluriTableAdapter != null)) {
+                    revertConnections.Add(this._denumiriniveluriTableAdapter, this._denumiriniveluriTableAdapter.Connection);
+                    this._denumiriniveluriTableAdapter.Connection = ((global::System.Data.Odbc.OdbcConnection)(workConnection));
+                    this._denumiriniveluriTableAdapter.Transaction = ((global::System.Data.Odbc.OdbcTransaction)(workTransaction));
+                    if (this._denumiriniveluriTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._denumiriniveluriTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._denumiriniveluriTableAdapter.Adapter);
+                    }
+                }
                 if ((this._functiiTableAdapter != null)) {
                     revertConnections.Add(this._functiiTableAdapter, this._functiiTableAdapter.Connection);
                     this._functiiTableAdapter.Connection = ((global::System.Data.Odbc.OdbcConnection)(workConnection));
@@ -6030,15 +6994,6 @@ namespace TOP._00Utilitare.dsTOPTableAdapters {
                     if (this._functiiTableAdapter.Adapter.AcceptChangesDuringUpdate) {
                         this._functiiTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
                         adaptersWithAcceptChangesDuringUpdate.Add(this._functiiTableAdapter.Adapter);
-                    }
-                }
-                if ((this._niveluriTableAdapter != null)) {
-                    revertConnections.Add(this._niveluriTableAdapter, this._niveluriTableAdapter.Connection);
-                    this._niveluriTableAdapter.Connection = ((global::System.Data.Odbc.OdbcConnection)(workConnection));
-                    this._niveluriTableAdapter.Transaction = ((global::System.Data.Odbc.OdbcTransaction)(workTransaction));
-                    if (this._niveluriTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._niveluriTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._niveluriTableAdapter.Adapter);
                     }
                 }
                 if ((this._produsesoftwareTableAdapter != null)) {
@@ -6066,6 +7021,15 @@ namespace TOP._00Utilitare.dsTOPTableAdapters {
                     if (this._utilizatoriTableAdapter.Adapter.AcceptChangesDuringUpdate) {
                         this._utilizatoriTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
                         adaptersWithAcceptChangesDuringUpdate.Add(this._utilizatoriTableAdapter.Adapter);
+                    }
+                }
+                if ((this._valoriniveluriTableAdapter != null)) {
+                    revertConnections.Add(this._valoriniveluriTableAdapter, this._valoriniveluriTableAdapter.Connection);
+                    this._valoriniveluriTableAdapter.Connection = ((global::System.Data.Odbc.OdbcConnection)(workConnection));
+                    this._valoriniveluriTableAdapter.Transaction = ((global::System.Data.Odbc.OdbcTransaction)(workTransaction));
+                    if (this._valoriniveluriTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._valoriniveluriTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._valoriniveluriTableAdapter.Adapter);
                     }
                 }
                 // 
@@ -6126,13 +7090,13 @@ namespace TOP._00Utilitare.dsTOPTableAdapters {
                 if (workConnOpened) {
                     workConnection.Close();
                 }
+                if ((this._denumiriniveluriTableAdapter != null)) {
+                    this._denumiriniveluriTableAdapter.Connection = ((global::System.Data.Odbc.OdbcConnection)(revertConnections[this._denumiriniveluriTableAdapter]));
+                    this._denumiriniveluriTableAdapter.Transaction = null;
+                }
                 if ((this._functiiTableAdapter != null)) {
                     this._functiiTableAdapter.Connection = ((global::System.Data.Odbc.OdbcConnection)(revertConnections[this._functiiTableAdapter]));
                     this._functiiTableAdapter.Transaction = null;
-                }
-                if ((this._niveluriTableAdapter != null)) {
-                    this._niveluriTableAdapter.Connection = ((global::System.Data.Odbc.OdbcConnection)(revertConnections[this._niveluriTableAdapter]));
-                    this._niveluriTableAdapter.Transaction = null;
                 }
                 if ((this._produsesoftwareTableAdapter != null)) {
                     this._produsesoftwareTableAdapter.Connection = ((global::System.Data.Odbc.OdbcConnection)(revertConnections[this._produsesoftwareTableAdapter]));
@@ -6145,6 +7109,10 @@ namespace TOP._00Utilitare.dsTOPTableAdapters {
                 if ((this._utilizatoriTableAdapter != null)) {
                     this._utilizatoriTableAdapter.Connection = ((global::System.Data.Odbc.OdbcConnection)(revertConnections[this._utilizatoriTableAdapter]));
                     this._utilizatoriTableAdapter.Transaction = null;
+                }
+                if ((this._valoriniveluriTableAdapter != null)) {
+                    this._valoriniveluriTableAdapter.Connection = ((global::System.Data.Odbc.OdbcConnection)(revertConnections[this._valoriniveluriTableAdapter]));
+                    this._valoriniveluriTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];

@@ -1,6 +1,7 @@
-drop table if exists Structuri;
 drop table if exists ProduseSoftware;
-drop table if exists Niveluri;
+drop table if exists valoriNiveluri;
+drop table if exists denumiriNiveluri;
+drop table if exists Structuri;
 drop table if exists Utilizatori;
 drop table if exists Functii;
 
@@ -33,9 +34,9 @@ denumireStructura varchar(50),
 dataAdaugareStruct date
 );
 
-create table Niveluri (
-codStructuraNivele numeric(6) constraint fkCodStructuraNivele references Structuri(codStructura),
-nrNivele numeric(2) constraint pdnrNivele primary key,
+create table denumiriNiveluri (
+codStrucDenumiriNiv numeric(6) constraint fkcodStrucDenumiriNiv references Structuri(codStructura),
+nrNiveluri numeric(2) NULL,
 nivelA varchar(50) NULL,
 nivelB varchar(50) NULL,
 nivelC varchar(50) NULL,
@@ -53,7 +54,25 @@ nivelN varchar(50) NULL,
 nivelO varchar(50) NULL
 );
 
-
+create table valoriNiveluri (
+codStrucValoriNiv numeric(6) constraint fkcodStrucValoriNiv references Structuri(codStructura),
+nrNiveluri numeric(2) NULL,
+nivelA varchar(50) NULL,
+nivelB varchar(50) NULL,
+nivelC varchar(50) NULL,
+nivelD varchar(50) NULL,
+nivelE varchar(50) NULL,
+nivelF varchar(50) NULL,
+nivelG varchar(50) NULL,
+nivelH varchar(50) NULL,
+nivelI varchar(50) NULL,
+nivelJ varchar(50) NULL,
+nivelK varchar(50) NULL,
+nivelL varchar(50) NULL,
+nivelM varchar(50) NULL,
+nivelN varchar(50) NULL,
+nivelO varchar(50) NULL
+);
 
 
 

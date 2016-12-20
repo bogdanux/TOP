@@ -47,7 +47,7 @@
             this.btnFisier});
             this.msMenu.Location = new System.Drawing.Point(0, 0);
             this.msMenu.Name = "msMenu";
-            this.msMenu.Size = new System.Drawing.Size(634, 24);
+            this.msMenu.Size = new System.Drawing.Size(1008, 24);
             this.msMenu.TabIndex = 0;
             this.msMenu.Text = "menuStrip1";
             // 
@@ -73,7 +73,7 @@
             this.panouGeneral.Controls.Add(this.lblStructura);
             this.panouGeneral.Location = new System.Drawing.Point(12, 32);
             this.panouGeneral.Name = "panouGeneral";
-            this.panouGeneral.Size = new System.Drawing.Size(610, 36);
+            this.panouGeneral.Size = new System.Drawing.Size(984, 36);
             this.panouGeneral.TabIndex = 1;
             // 
             // btnOK
@@ -113,14 +113,15 @@
             this.dgvNiveluri.Location = new System.Drawing.Point(12, 74);
             this.dgvNiveluri.Name = "dgvNiveluri";
             this.dgvNiveluri.RowHeadersVisible = false;
-            this.dgvNiveluri.Size = new System.Drawing.Size(610, 355);
+            this.dgvNiveluri.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.dgvNiveluri.Size = new System.Drawing.Size(984, 355);
             this.dgvNiveluri.TabIndex = 2;
             // 
             // frmVizualizareNiveluri
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(634, 441);
+            this.ClientSize = new System.Drawing.Size(1008, 441);
             this.Controls.Add(this.dgvNiveluri);
             this.Controls.Add(this.panouGeneral);
             this.Controls.Add(this.msMenu);

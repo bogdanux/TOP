@@ -21,3 +21,4 @@ C:\Users\Infologic\Documents\TOP\TOP\TOP\obj\x86\Debug\TOP.Properties.Resources.
 C:\Users\Infologic\Documents\TOP\TOP\TOP\obj\x86\Debug\TOP.csproj.GenerateResource.Cache
 C:\Users\Infologic\Documents\TOP\TOP\TOP\obj\x86\Debug\TOP.exe
 C:\Users\Infologic\Documents\TOP\TOP\TOP\obj\x86\Debug\TOP.pdb
+C:\Users\Infologic\Documents\TOP\TOP\TOP\obj\x86\Debug\TOP.csprojResolveAssemblyReference.cache
