@@ -40,6 +40,8 @@
             this.lblNivel = new System.Windows.Forms.Label();
             this.msMeniuAdaugareFunctii = new System.Windows.Forms.MenuStrip();
             this.tsIesire = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnModificareFunctii = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnVizualizareFunctii = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFunctii)).BeginInit();
             this.PanouAdaugare.SuspendLayout();
             this.msMeniuAdaugareFunctii.SuspendLayout();
@@ -154,7 +156,9 @@
             // msMeniuAdaugareFunctii
             // 
             this.msMeniuAdaugareFunctii.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsIesire});
+            this.tsIesire,
+            this.btnModificareFunctii,
+            this.btnVizualizareFunctii});
             this.msMeniuAdaugareFunctii.Location = new System.Drawing.Point(0, 0);
             this.msMeniuAdaugareFunctii.Name = "msMeniuAdaugareFunctii";
             this.msMeniuAdaugareFunctii.Size = new System.Drawing.Size(634, 24);
@@ -168,6 +172,20 @@
             this.tsIesire.Size = new System.Drawing.Size(46, 20);
             this.tsIesire.Text = "I&esire";
             this.tsIesire.Click += new System.EventHandler(this.tsIesire_Click);
+            // 
+            // btnModificareFunctii
+            // 
+            this.btnModificareFunctii.Name = "btnModificareFunctii";
+            this.btnModificareFunctii.Size = new System.Drawing.Size(113, 20);
+            this.btnModificareFunctii.Text = "&Modificare functii";
+            this.btnModificareFunctii.Click += new System.EventHandler(this.btnModificareFunctii_Click);
+            // 
+            // btnVizualizareFunctii
+            // 
+            this.btnVizualizareFunctii.Name = "btnVizualizareFunctii";
+            this.btnVizualizareFunctii.Size = new System.Drawing.Size(106, 20);
+            this.btnVizualizareFunctii.Text = "&Vizualiare functii";
+            this.btnVizualizareFunctii.Click += new System.EventHandler(this.btnVizualizareFunctii_Click);
             // 
             // frmAdaugareFunctii
             // 
@@ -205,5 +223,7 @@
         private System.Windows.Forms.ToolStripMenuItem tsIesire;
         private System.Windows.Forms.ComboBox cmbNivel;
         private System.Windows.Forms.Label lblNivel;
+        private System.Windows.Forms.ToolStripMenuItem btnModificareFunctii;
+        private System.Windows.Forms.ToolStripMenuItem btnVizualizareFunctii;
     }
 }

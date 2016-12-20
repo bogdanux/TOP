@@ -31,6 +31,8 @@
             this.msMenu = new System.Windows.Forms.MenuStrip();
             this.btnFisier = new System.Windows.Forms.ToolStripMenuItem();
             this.btnIesire = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnAdaugareProduse = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnModificareProduse = new System.Windows.Forms.ToolStripMenuItem();
             this.dgvProduse = new System.Windows.Forms.DataGridView();
             this.msMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduse)).BeginInit();
@@ -39,7 +41,9 @@
             // msMenu
             // 
             this.msMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btnFisier});
+            this.btnFisier,
+            this.btnAdaugareProduse,
+            this.btnModificareProduse});
             this.msMenu.Location = new System.Drawing.Point(0, 0);
             this.msMenu.Name = "msMenu";
             this.msMenu.Size = new System.Drawing.Size(634, 24);
@@ -60,6 +64,20 @@
             this.btnIesire.Size = new System.Drawing.Size(101, 22);
             this.btnIesire.Text = "I&esire";
             this.btnIesire.Click += new System.EventHandler(this.btnIesire_Click);
+            // 
+            // btnAdaugareProduse
+            // 
+            this.btnAdaugareProduse.Name = "btnAdaugareProduse";
+            this.btnAdaugareProduse.Size = new System.Drawing.Size(116, 20);
+            this.btnAdaugareProduse.Text = "&Adaugare produse";
+            this.btnAdaugareProduse.Click += new System.EventHandler(this.btnAdaugareProduse_Click);
+            // 
+            // btnModificareProduse
+            // 
+            this.btnModificareProduse.Name = "btnModificareProduse";
+            this.btnModificareProduse.Size = new System.Drawing.Size(122, 20);
+            this.btnModificareProduse.Text = "&Modificare produse";
+            this.btnModificareProduse.Click += new System.EventHandler(this.btnModificareProduse_Click);
             // 
             // dgvProduse
             // 
@@ -98,5 +116,7 @@
         private System.Windows.Forms.ToolStripMenuItem btnFisier;
         private System.Windows.Forms.ToolStripMenuItem btnIesire;
         private System.Windows.Forms.DataGridView dgvProduse;
+        private System.Windows.Forms.ToolStripMenuItem btnAdaugareProduse;
+        private System.Windows.Forms.ToolStripMenuItem btnModificareProduse;
     }
 }

@@ -145,5 +145,47 @@ namespace TOP
                 MessageBox.Show(struc.scm);
             }
         }
+
+        private void btnAdaugareStructuri_Click(object sender, EventArgs e)
+        {
+            Form form = new frmAdaugareStructuri();
+
+            form.MdiParent = this.ParentForm;
+
+            foreach (Form forms in Application.OpenForms)
+            {
+                if (forms.GetType() == typeof(frmAdaugareStructuri))
+                {
+                    forms.WindowState = FormWindowState.Normal;
+                    forms.Activate();
+                    return;
+                }
+            }
+
+            form.Show();
+
+            Close();
+        }
+
+        private void btnVizualizareStructuri_Click(object sender, EventArgs e)
+        {
+            Form form = new frmVizualizareStructuri();
+
+            form.MdiParent = this.ParentForm;
+
+            foreach (Form forms in Application.OpenForms)
+            {
+                if (forms.GetType() == typeof(frmVizualizareStructuri))
+                {
+                    forms.WindowState = FormWindowState.Normal;
+                    forms.Activate();
+                    return;
+                }
+            }
+
+            form.Show();
+
+            Close();
+        }
     }
 }

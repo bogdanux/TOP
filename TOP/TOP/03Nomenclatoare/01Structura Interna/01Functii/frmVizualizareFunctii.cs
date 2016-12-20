@@ -58,5 +58,47 @@ namespace TOP
                 }
             }
         }
+
+        private void btnAdaugareFunctii_Click(object sender, EventArgs e)
+        {
+            Form form = new frmAdaugareFunctii();
+
+            form.MdiParent = this.ParentForm;
+
+            foreach (Form forms in Application.OpenForms)
+            {
+                if (forms.GetType() == typeof(frmAdaugareFunctii))
+                {
+                    forms.WindowState = FormWindowState.Normal;
+                    forms.Activate();
+                    return;
+                }
+            }
+
+            form.Show();
+
+            Close();
+        }
+
+        private void btnModificareFunctii_Click(object sender, EventArgs e)
+        {
+            Form form = new frmModificareFunctii();
+
+            form.MdiParent = this.ParentForm;
+
+            foreach (Form forms in Application.OpenForms)
+            {
+                if (forms.GetType() == typeof(frmModificareFunctii))
+                {
+                    forms.WindowState = FormWindowState.Normal;
+                    forms.Activate();
+                    return;
+                }
+            }
+
+            form.Show();
+
+            Close();
+        }
     }
 }

@@ -189,5 +189,47 @@ namespace TOP
                 btnAdaugare.Enabled = false;
             }
         }
+
+        private void btnModificareUtilizatori_Click(object sender, EventArgs e)
+        {
+            Form form = new frmModificareUtilizatori();
+
+            form.MdiParent = this.ParentForm;
+
+            foreach (Form forms in Application.OpenForms)
+            {
+                if (forms.GetType() == typeof(frmModificareUtilizatori))
+                {
+                    forms.WindowState = FormWindowState.Normal;
+                    forms.Activate();
+                    return;
+                }
+            }
+
+            form.Show();
+
+            Close();
+        }
+
+        private void btnVizualizareUtilizatori_Click(object sender, EventArgs e)
+        {
+            Form form = new frmVizualizareUtilizatori();
+
+            form.MdiParent = this.ParentForm;
+
+            foreach (Form forms in Application.OpenForms)
+            {
+                if (forms.GetType() == typeof(frmVizualizareUtilizatori))
+                {
+                    forms.WindowState = FormWindowState.Normal;
+                    forms.Activate();
+                    return;
+                }
+            }
+
+            form.Show();
+
+            Close();
+        }
     }
 }

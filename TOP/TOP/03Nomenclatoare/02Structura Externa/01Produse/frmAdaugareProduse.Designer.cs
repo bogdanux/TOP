@@ -31,6 +31,8 @@
             this.msMenu = new System.Windows.Forms.MenuStrip();
             this.fisierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.iesireToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnModificareProduse = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnVizualizareProduse = new System.Windows.Forms.ToolStripMenuItem();
             this.panouGeneral = new System.Windows.Forms.Panel();
             this.chkActiv = new System.Windows.Forms.CheckBox();
             this.btnAdauga = new System.Windows.Forms.Button();
@@ -51,7 +53,9 @@
             // msMenu
             // 
             this.msMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fisierToolStripMenuItem});
+            this.fisierToolStripMenuItem,
+            this.btnModificareProduse,
+            this.btnVizualizareProduse});
             this.msMenu.Location = new System.Drawing.Point(0, 0);
             this.msMenu.Name = "msMenu";
             this.msMenu.Size = new System.Drawing.Size(634, 24);
@@ -72,6 +76,20 @@
             this.iesireToolStripMenuItem.Size = new System.Drawing.Size(101, 22);
             this.iesireToolStripMenuItem.Text = "I&esire";
             this.iesireToolStripMenuItem.Click += new System.EventHandler(this.iesireToolStripMenuItem_Click);
+            // 
+            // btnModificareProduse
+            // 
+            this.btnModificareProduse.Name = "btnModificareProduse";
+            this.btnModificareProduse.Size = new System.Drawing.Size(122, 20);
+            this.btnModificareProduse.Text = "&Modificare produse";
+            this.btnModificareProduse.Click += new System.EventHandler(this.btnModificareProduse_Click);
+            // 
+            // btnVizualizareProduse
+            // 
+            this.btnVizualizareProduse.Name = "btnVizualizareProduse";
+            this.btnVizualizareProduse.Size = new System.Drawing.Size(120, 20);
+            this.btnVizualizareProduse.Text = "&Vizualizare produse";
+            this.btnVizualizareProduse.Click += new System.EventHandler(this.btnVizualizareProduse_Click);
             // 
             // panouGeneral
             // 
@@ -231,5 +249,7 @@
         private System.Windows.Forms.Button btnAdauga;
         private System.Windows.Forms.DataGridView dgvProduse;
         private System.Windows.Forms.CheckBox chkActiv;
+        private System.Windows.Forms.ToolStripMenuItem btnModificareProduse;
+        private System.Windows.Forms.ToolStripMenuItem btnVizualizareProduse;
     }
 }

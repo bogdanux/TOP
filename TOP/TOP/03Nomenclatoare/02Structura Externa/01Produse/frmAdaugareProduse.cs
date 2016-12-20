@@ -160,5 +160,47 @@ namespace TOP
                 MessageBox.Show(prod.sca);
             }
         }
+
+        private void btnModificareProduse_Click(object sender, EventArgs e)
+        {
+            Form form = new frmModificareProduse();
+
+            form.MdiParent = this.ParentForm;
+
+            foreach (Form forms in Application.OpenForms)
+            {
+                if (forms.GetType() == typeof(frmModificareProduse))
+                {
+                    forms.WindowState = FormWindowState.Normal;
+                    forms.Activate();
+                    return;
+                }
+            }
+
+            form.Show();
+
+            Close();
+        }
+
+        private void btnVizualizareProduse_Click(object sender, EventArgs e)
+        {
+            Form form = new frmVizualizareProduse();
+
+            form.MdiParent = this.ParentForm;
+
+            foreach (Form forms in Application.OpenForms)
+            {
+                if (forms.GetType() == typeof(frmVizualizareProduse))
+                {
+                    forms.WindowState = FormWindowState.Normal;
+                    forms.Activate();
+                    return;
+                }
+            }
+
+            form.Show();
+
+            Close();
+        }
     }
 }

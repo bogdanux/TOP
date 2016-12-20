@@ -31,6 +31,8 @@
             this.msMenu = new System.Windows.Forms.MenuStrip();
             this.fisierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnIesire = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnAdaugareStructuri = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnVizualizareStructuri = new System.Windows.Forms.ToolStripMenuItem();
             this.panouGeneral = new System.Windows.Forms.Panel();
             this.btnOK = new System.Windows.Forms.Button();
             this.btnModifica = new System.Windows.Forms.Button();
@@ -49,7 +51,9 @@
             // msMenu
             // 
             this.msMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fisierToolStripMenuItem});
+            this.fisierToolStripMenuItem,
+            this.btnAdaugareStructuri,
+            this.btnVizualizareStructuri});
             this.msMenu.Location = new System.Drawing.Point(0, 0);
             this.msMenu.Name = "msMenu";
             this.msMenu.Size = new System.Drawing.Size(634, 24);
@@ -70,6 +74,20 @@
             this.btnIesire.Size = new System.Drawing.Size(101, 22);
             this.btnIesire.Text = "I&esire";
             this.btnIesire.Click += new System.EventHandler(this.btnIesire_Click);
+            // 
+            // btnAdaugareStructuri
+            // 
+            this.btnAdaugareStructuri.Name = "btnAdaugareStructuri";
+            this.btnAdaugareStructuri.Size = new System.Drawing.Size(117, 20);
+            this.btnAdaugareStructuri.Text = "&Adaugare structuri";
+            this.btnAdaugareStructuri.Click += new System.EventHandler(this.btnAdaugareStructuri_Click);
+            // 
+            // btnVizualizareStructuri
+            // 
+            this.btnVizualizareStructuri.Name = "btnVizualizareStructuri";
+            this.btnVizualizareStructuri.Size = new System.Drawing.Size(121, 20);
+            this.btnVizualizareStructuri.Text = "&Vizualizare structuri";
+            this.btnVizualizareStructuri.Click += new System.EventHandler(this.btnVizualizareStructuri_Click);
             // 
             // panouGeneral
             // 
@@ -208,5 +226,7 @@
         private System.Windows.Forms.Button btnModifica;
         private System.Windows.Forms.DataGridView dgvStructuri;
         private System.Windows.Forms.Button btnOK;
+        private System.Windows.Forms.ToolStripMenuItem btnAdaugareStructuri;
+        private System.Windows.Forms.ToolStripMenuItem btnVizualizareStructuri;
     }
 }

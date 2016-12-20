@@ -42,6 +42,8 @@
             this.msMeniuAdaugareFunctii = new System.Windows.Forms.MenuStrip();
             this.tsIesire = new System.Windows.Forms.ToolStripMenuItem();
             this.tsResetareCampuri = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnAdaugareUtilizatori = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnVizualizareUtilizatori = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUtilizatori)).BeginInit();
             this.panouModificare.SuspendLayout();
             this.msMeniuAdaugareFunctii.SuspendLayout();
@@ -170,7 +172,9 @@
             // 
             this.msMeniuAdaugareFunctii.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsIesire,
-            this.tsResetareCampuri});
+            this.tsResetareCampuri,
+            this.btnAdaugareUtilizatori,
+            this.btnVizualizareUtilizatori});
             this.msMeniuAdaugareFunctii.Location = new System.Drawing.Point(0, 0);
             this.msMeniuAdaugareFunctii.Name = "msMeniuAdaugareFunctii";
             this.msMeniuAdaugareFunctii.Size = new System.Drawing.Size(634, 24);
@@ -191,6 +195,20 @@
             this.tsResetareCampuri.Size = new System.Drawing.Size(110, 20);
             this.tsResetareCampuri.Text = "&Resetare campuri";
             this.tsResetareCampuri.Click += new System.EventHandler(this.tsResetareCampuri_Click);
+            // 
+            // btnAdaugareUtilizatori
+            // 
+            this.btnAdaugareUtilizatori.Name = "btnAdaugareUtilizatori";
+            this.btnAdaugareUtilizatori.Size = new System.Drawing.Size(122, 20);
+            this.btnAdaugareUtilizatori.Text = "&Adaugare utilizatori";
+            this.btnAdaugareUtilizatori.Click += new System.EventHandler(this.btnAdaugareUtilizatori_Click);
+            // 
+            // btnVizualizareUtilizatori
+            // 
+            this.btnVizualizareUtilizatori.Name = "btnVizualizareUtilizatori";
+            this.btnVizualizareUtilizatori.Size = new System.Drawing.Size(126, 20);
+            this.btnVizualizareUtilizatori.Text = "&Vizualizare utilizatori";
+            this.btnVizualizareUtilizatori.Click += new System.EventHandler(this.btnVizualizareUtilizatori_Click);
             // 
             // frmModificareUtilizatori
             // 
@@ -228,5 +246,7 @@
         private System.Windows.Forms.ComboBox cmbFunctie;
         private System.Windows.Forms.Label lblFunctie;
         private System.Windows.Forms.ToolStripMenuItem tsResetareCampuri;
+        private System.Windows.Forms.ToolStripMenuItem btnAdaugareUtilizatori;
+        private System.Windows.Forms.ToolStripMenuItem btnVizualizareUtilizatori;
     }
 }

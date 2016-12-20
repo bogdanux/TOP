@@ -44,6 +44,8 @@
             this.lblDenumireProdus = new System.Windows.Forms.Label();
             this.lblCod = new System.Windows.Forms.Label();
             this.dgvProduse = new System.Windows.Forms.DataGridView();
+            this.btnAdaugareProduse = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnVizualizareProduse = new System.Windows.Forms.ToolStripMenuItem();
             this.msMenu.SuspendLayout();
             this.panouGeneral.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduse)).BeginInit();
@@ -52,7 +54,9 @@
             // msMenu
             // 
             this.msMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btnFisier});
+            this.btnFisier,
+            this.btnAdaugareProduse,
+            this.btnVizualizareProduse});
             this.msMenu.Location = new System.Drawing.Point(0, 0);
             this.msMenu.Name = "msMenu";
             this.msMenu.Size = new System.Drawing.Size(634, 24);
@@ -207,6 +211,20 @@
             this.dgvProduse.Size = new System.Drawing.Size(610, 247);
             this.dgvProduse.TabIndex = 7;
             // 
+            // btnAdaugareProduse
+            // 
+            this.btnAdaugareProduse.Name = "btnAdaugareProduse";
+            this.btnAdaugareProduse.Size = new System.Drawing.Size(116, 20);
+            this.btnAdaugareProduse.Text = "&Adaugare produse";
+            this.btnAdaugareProduse.Click += new System.EventHandler(this.btnAdaugareProduse_Click);
+            // 
+            // btnVizualizareProduse
+            // 
+            this.btnVizualizareProduse.Name = "btnVizualizareProduse";
+            this.btnVizualizareProduse.Size = new System.Drawing.Size(120, 20);
+            this.btnVizualizareProduse.Text = "&Vizualizare produse";
+            this.btnVizualizareProduse.Click += new System.EventHandler(this.btnVizualizareProduse_Click);
+            // 
             // frmModificareProduse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -247,5 +265,7 @@
         private System.Windows.Forms.DataGridView dgvProduse;
         private System.Windows.Forms.CheckBox chkActiv;
         private System.Windows.Forms.Button btnOK;
+        private System.Windows.Forms.ToolStripMenuItem btnAdaugareProduse;
+        private System.Windows.Forms.ToolStripMenuItem btnVizualizareProduse;
     }
 }

@@ -42,6 +42,8 @@
             this.msMeniuAdaugareFunctii = new System.Windows.Forms.MenuStrip();
             this.tsIesire = new System.Windows.Forms.ToolStripMenuItem();
             this.tsResetareCampuri = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnAdaugareFunctii = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnVizualizareFunctii = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFunctii)).BeginInit();
             this.panouModificare.SuspendLayout();
             this.msMeniuAdaugareFunctii.SuspendLayout();
@@ -170,7 +172,9 @@
             // 
             this.msMeniuAdaugareFunctii.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsIesire,
-            this.tsResetareCampuri});
+            this.tsResetareCampuri,
+            this.btnAdaugareFunctii,
+            this.btnVizualizareFunctii});
             this.msMeniuAdaugareFunctii.Location = new System.Drawing.Point(0, 0);
             this.msMeniuAdaugareFunctii.Name = "msMeniuAdaugareFunctii";
             this.msMeniuAdaugareFunctii.Size = new System.Drawing.Size(634, 24);
@@ -191,6 +195,20 @@
             this.tsResetareCampuri.Size = new System.Drawing.Size(110, 20);
             this.tsResetareCampuri.Text = "&Resetare campuri";
             this.tsResetareCampuri.Click += new System.EventHandler(this.tsResetareCampuri_Click);
+            // 
+            // btnAdaugareFunctii
+            // 
+            this.btnAdaugareFunctii.Name = "btnAdaugareFunctii";
+            this.btnAdaugareFunctii.Size = new System.Drawing.Size(107, 20);
+            this.btnAdaugareFunctii.Text = "&Adaugare functii";
+            this.btnAdaugareFunctii.Click += new System.EventHandler(this.btnAdaugareFunctii_Click);
+            // 
+            // btnVizualizareFunctii
+            // 
+            this.btnVizualizareFunctii.Name = "btnVizualizareFunctii";
+            this.btnVizualizareFunctii.Size = new System.Drawing.Size(111, 20);
+            this.btnVizualizareFunctii.Text = "&Vizualizare functii";
+            this.btnVizualizareFunctii.Click += new System.EventHandler(this.btnVizualizareFunctii_Click);
             // 
             // frmModificareFunctii
             // 
@@ -229,5 +247,7 @@
         private System.Windows.Forms.ComboBox cmbNivel;
         private System.Windows.Forms.Label lblNivel;
         private System.Windows.Forms.ToolStripMenuItem tsResetareCampuri;
+        private System.Windows.Forms.ToolStripMenuItem btnAdaugareFunctii;
+        private System.Windows.Forms.ToolStripMenuItem btnVizualizareFunctii;
     }
 }

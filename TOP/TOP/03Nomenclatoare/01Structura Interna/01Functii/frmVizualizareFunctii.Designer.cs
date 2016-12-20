@@ -32,6 +32,8 @@
             this.fisierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.iesireToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dgvFunctii = new System.Windows.Forms.DataGridView();
+            this.btnAdaugareFunctii = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnModificareFunctii = new System.Windows.Forms.ToolStripMenuItem();
             this.msMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFunctii)).BeginInit();
             this.SuspendLayout();
@@ -39,7 +41,9 @@
             // msMenu
             // 
             this.msMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fisierToolStripMenuItem});
+            this.fisierToolStripMenuItem,
+            this.btnAdaugareFunctii,
+            this.btnModificareFunctii});
             this.msMenu.Location = new System.Drawing.Point(0, 0);
             this.msMenu.Name = "msMenu";
             this.msMenu.Size = new System.Drawing.Size(634, 24);
@@ -73,6 +77,20 @@
             this.dgvFunctii.Size = new System.Drawing.Size(634, 417);
             this.dgvFunctii.TabIndex = 1;
             // 
+            // btnAdaugareFunctii
+            // 
+            this.btnAdaugareFunctii.Name = "btnAdaugareFunctii";
+            this.btnAdaugareFunctii.Size = new System.Drawing.Size(107, 20);
+            this.btnAdaugareFunctii.Text = "&Adaugare functii";
+            this.btnAdaugareFunctii.Click += new System.EventHandler(this.btnAdaugareFunctii_Click);
+            // 
+            // btnModificareFunctii
+            // 
+            this.btnModificareFunctii.Name = "btnModificareFunctii";
+            this.btnModificareFunctii.Size = new System.Drawing.Size(113, 20);
+            this.btnModificareFunctii.Text = "&Modificare functii";
+            this.btnModificareFunctii.Click += new System.EventHandler(this.btnModificareFunctii_Click);
+            // 
             // frmVizualizareFunctii
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -98,5 +116,7 @@
         private System.Windows.Forms.ToolStripMenuItem fisierToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem iesireToolStripMenuItem;
         private System.Windows.Forms.DataGridView dgvFunctii;
+        private System.Windows.Forms.ToolStripMenuItem btnAdaugareFunctii;
+        private System.Windows.Forms.ToolStripMenuItem btnModificareFunctii;
     }
 }

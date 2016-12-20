@@ -31,6 +31,8 @@
             this.msMenu = new System.Windows.Forms.MenuStrip();
             this.fisierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.iesireToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnAdaugareUtilizatori = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnModificareUtilzatori = new System.Windows.Forms.ToolStripMenuItem();
             this.dgvUtilizatori = new System.Windows.Forms.DataGridView();
             this.msMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUtilizatori)).BeginInit();
@@ -39,7 +41,9 @@
             // msMenu
             // 
             this.msMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fisierToolStripMenuItem});
+            this.fisierToolStripMenuItem,
+            this.btnAdaugareUtilizatori,
+            this.btnModificareUtilzatori});
             this.msMenu.Location = new System.Drawing.Point(0, 0);
             this.msMenu.Name = "msMenu";
             this.msMenu.Size = new System.Drawing.Size(634, 24);
@@ -60,6 +64,20 @@
             this.iesireToolStripMenuItem.Size = new System.Drawing.Size(101, 22);
             this.iesireToolStripMenuItem.Text = "I&esire";
             this.iesireToolStripMenuItem.Click += new System.EventHandler(this.iesireToolStripMenuItem_Click);
+            // 
+            // btnAdaugareUtilizatori
+            // 
+            this.btnAdaugareUtilizatori.Name = "btnAdaugareUtilizatori";
+            this.btnAdaugareUtilizatori.Size = new System.Drawing.Size(122, 20);
+            this.btnAdaugareUtilizatori.Text = "&Adaugare utilizatori";
+            this.btnAdaugareUtilizatori.Click += new System.EventHandler(this.btnAdaugareUtilizatori_Click);
+            // 
+            // btnModificareUtilzatori
+            // 
+            this.btnModificareUtilzatori.Name = "btnModificareUtilzatori";
+            this.btnModificareUtilzatori.Size = new System.Drawing.Size(128, 20);
+            this.btnModificareUtilzatori.Text = "&Modificare utilizatori";
+            this.btnModificareUtilzatori.Click += new System.EventHandler(this.btnModificareUtilzatori_Click);
             // 
             // dgvUtilizatori
             // 
@@ -98,5 +116,7 @@
         private System.Windows.Forms.ToolStripMenuItem fisierToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem iesireToolStripMenuItem;
         private System.Windows.Forms.DataGridView dgvUtilizatori;
+        private System.Windows.Forms.ToolStripMenuItem btnAdaugareUtilizatori;
+        private System.Windows.Forms.ToolStripMenuItem btnModificareUtilzatori;
     }
 }

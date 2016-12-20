@@ -222,5 +222,47 @@ namespace TOP
                 MessageBox.Show(util.scm);
             }
         }
+
+        private void btnAdaugareUtilizatori_Click(object sender, EventArgs e)
+        {
+            Form form = new frmAdaugareUtilizatori();
+
+            form.MdiParent = this.ParentForm;
+
+            foreach (Form forms in Application.OpenForms)
+            {
+                if (forms.GetType() == typeof(frmAdaugareUtilizatori))
+                {
+                    forms.WindowState = FormWindowState.Normal;
+                    forms.Activate();
+                    return;
+                }
+            }
+
+            form.Show();
+
+            Close();
+        }
+
+        private void btnVizualizareUtilizatori_Click(object sender, EventArgs e)
+        {
+            Form form = new frmVizualizareUtilizatori();
+
+            form.MdiParent = this.ParentForm;
+
+            foreach (Form forms in Application.OpenForms)
+            {
+                if (forms.GetType() == typeof(frmVizualizareUtilizatori))
+                {
+                    forms.WindowState = FormWindowState.Normal;
+                    forms.Activate();
+                    return;
+                }
+            }
+
+            form.Show();
+
+            Close();
+        }
     }
 }

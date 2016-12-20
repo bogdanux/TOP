@@ -40,6 +40,8 @@
             this.lblDenumireProdus = new System.Windows.Forms.Label();
             this.lblCod = new System.Windows.Forms.Label();
             this.dgvStructuri = new System.Windows.Forms.DataGridView();
+            this.btnModificareStructuri = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnVizualizareStructuri = new System.Windows.Forms.ToolStripMenuItem();
             this.msMenu.SuspendLayout();
             this.panouGeneral.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStructuri)).BeginInit();
@@ -48,7 +50,9 @@
             // msMenu
             // 
             this.msMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fisierToolStripMenuItem});
+            this.fisierToolStripMenuItem,
+            this.btnModificareStructuri,
+            this.btnVizualizareStructuri});
             this.msMenu.Location = new System.Drawing.Point(0, 0);
             this.msMenu.Name = "msMenu";
             this.msMenu.Size = new System.Drawing.Size(634, 24);
@@ -66,7 +70,7 @@
             // btnIesire
             // 
             this.btnIesire.Name = "btnIesire";
-            this.btnIesire.Size = new System.Drawing.Size(152, 22);
+            this.btnIesire.Size = new System.Drawing.Size(101, 22);
             this.btnIesire.Text = "I&esire";
             this.btnIesire.Click += new System.EventHandler(this.btnIesire_Click);
             // 
@@ -157,6 +161,20 @@
             this.dgvStructuri.Size = new System.Drawing.Size(610, 247);
             this.dgvStructuri.TabIndex = 7;
             // 
+            // btnModificareStructuri
+            // 
+            this.btnModificareStructuri.Name = "btnModificareStructuri";
+            this.btnModificareStructuri.Size = new System.Drawing.Size(123, 20);
+            this.btnModificareStructuri.Text = "&Modificare structuri";
+            this.btnModificareStructuri.Click += new System.EventHandler(this.btnModificareStructuri_Click);
+            // 
+            // btnVizualizareStructuri
+            // 
+            this.btnVizualizareStructuri.Name = "btnVizualizareStructuri";
+            this.btnVizualizareStructuri.Size = new System.Drawing.Size(121, 20);
+            this.btnVizualizareStructuri.Text = "&Vizualizare structuri";
+            this.btnVizualizareStructuri.Click += new System.EventHandler(this.btnVizualizareStructuri_Click);
+            // 
             // frmAdaugareStructuri
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -193,5 +211,7 @@
         private System.Windows.Forms.TextBox txtDenumire;
         private System.Windows.Forms.Button btnAdauga;
         private System.Windows.Forms.DataGridView dgvStructuri;
+        private System.Windows.Forms.ToolStripMenuItem btnModificareStructuri;
+        private System.Windows.Forms.ToolStripMenuItem btnVizualizareStructuri;
     }
 }
